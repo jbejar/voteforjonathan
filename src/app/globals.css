@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 800px; /* Adjust as needed */
+    margin: 20px auto;
+    display: flex;
+    background-color: #fff; /* White background for the main content */
+    border-radius: 10px;
+    overflow: hidden; /* Prevents content from overflowing rounded corners */
+  }
+
+  .left-side {
+    width: 40%;
+    background-color: #293a87; /* Dark Blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .right-side {
+    width: 60%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  .image-container {
+    margin-bottom: 20px;
+  }
+
+  .image-container img {
+    width: 100%; /* Make image responsive within its container */
+    height: auto;
+    border-radius: 10px; /* Optional: Add rounded corners to the image */
+  }
+
+  .date {
+    font-weight: bold;
+  }
