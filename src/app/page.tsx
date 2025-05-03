@@ -31,14 +31,18 @@ const HomePage: React.FC = () => {
                             <li>Select a highly qualified superdintendant</li>
                         </ul>
                             <h2>Election Details</h2>
-                            <p>Primary Election: </p>
-                            <p>General Election: August 12, 2025</p>
+                            <p>Primary Election: August 12, 2025<br/>
+                            General Election: November 4, 2025</p>
 
                             <h2>Get Involved</h2>
                             <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
-                            <button className="cta">Volunteer</button>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header" 
+                               className="cta" 
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                                Volunteer
+                            </a>
                             <p>Join our campaign to make a difference in our community. We need volunteers to help with canvassing, phone banking, and more.</p>
-                            <button className="cta">Donate Now</button>
 
                     </div>
                 </div>

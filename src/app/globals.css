@@ -44,12 +44,21 @@ nav a {
   margin: auto;
 }
 
-.cta button {
+.cta {
   background-color: var(--accent);
   color: var(--neutral);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   cursor: pointer;
+  font-size: 1.1em;
+  border-radius: 5px;
+  margin: 4rem 0;
+  transition: background-color 0.2s ease;
+  
+}
+
+.cta:hover {
+  background-color: var(--secondary);
 }
 
 footer {
@@ -59,61 +68,62 @@ footer {
   padding: 1rem;
 }
 
-  .container {
-    width: 800px; /* Adjust as needed */
-    margin: 20px auto;
-    /* display: flex; */
-    background-color: var(--neutral); /* White background for the main content */
-    color: var(--text);
-    border-radius: 10px;
-    overflow: hidden; /* Prevents content from overflowing rounded corners */
-  }
-  .side-by-side {
-    display: flex;
-    flex-direction: row; /* Aligns children in a row */
-  }
-  .left-side {
-    width: 40%;
-    background-color: var(--primary); /* Dark Blue */
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
+.container {
+  width: 800px;
+  margin: 20px auto;
+  background-color: var(--neutral);
+  color: var(--text);
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-  .right-side {
-    width: 60%;
-    padding: 20px;
-  }
+.side-by-side {
+  display: flex;
+  flex-direction: row; /* Aligns children in a row */
+}
 
-  h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-  }
+.left-side {
+  width: 40%;
+  background-color: var(--primary); /* Dark Blue */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
-  h2 {
-    font-size: 1.5em;
-    margin-top: 0;
-  }
+.right-side {
+  width: 60%;
+  padding: 20px;
+}
 
-  p {
-    line-height: 1.5;
-  }
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
 
-  ul {
-    list-style-type: disc;
-    margin-left: 20px;
-  }
+h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+}
 
-  .image-container {
-    margin-bottom: 20px;
-  }
+p {
+  line-height: 1.5;
+}
 
-  .image-container img {
-    width: 100%; /* Make image responsive within its container */
-    height: auto;
-    border-radius: 10px; /* Optional: Add rounded corners to the image */
-  }
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
 
-  .date {
-    font-weight: bold;
-  }
+.image-container {
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  width: 100%; /* Make image responsive within its container */
+  height: auto;
+  border-radius: 10px; /* Optional: Add rounded corners to the image */
+}
+
+.date {
+  font-weight: bold;
+}
