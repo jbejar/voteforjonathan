@@ -1,0 +1,23 @@
+// Override default variables before the import
+$theme-colors: (
+  "primary": #444444,
+  "secondary": #74213C,
+  "danger": #B22222,
+  "light": #E0E4E5,
+  "dark": #333333
+);
+
+// Import Bootstrap and its default variables
+@import "bootstrap/scss/bootstrap";
+
+/* Minimal custom styles that aren't available in Bootstrap */
+.hero img {
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+}

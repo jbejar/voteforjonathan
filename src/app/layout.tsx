@@ -1,51 +1,49 @@
+'use client'
 import { Inter } from 'next/font/google'
-import { Metadata } from 'next'
-import './globals.css'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import './globals.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Vote for Jonathan',
-  description: 'Election campaign website for Jonathan',
-  viewport: 'width=device-width, initial-scale=1',
-  keywords: 'election, campaign, jonathan, vote',
-  authors: [{ name: 'Jonathan' }],
-  openGraph: {
-    title: 'Vote for Jonathan',
-    description: 'Election campaign website for Jonathan',
-    type: 'website',
-  },
-}
-
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <div className="flex flex-col min-h-screen">
-          <header className="sticky top-0 z-50 w-full bg-white border-b shadow-sm">
-            <nav className="mx-auto px-4 py-4">
-            <a href="#">Home</a>
-                    <a href="#">Volunteer</a>
-                    <a href="#">Donate</a>
-                    <a href="#">Contact</a>
-                    <a href="#">About</a>
-            </nav>
-          </header>
+      <body className={inter.className}>
+        <div className="d-flex flex-column min-vh-100">
+          <Navbar bg="white" expand="lg" className="shadow-sm border-bottom sticky-top">
+            <Container>
+              <Navbar.Brand href="/">Vote for Jonathan</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="ms-auto">
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/volunteer">Volunteer</Nav.Link>
+                  <Nav.Link href="/donate">Donate</Nav.Link>
+                  <Nav.Link href="/contact">Contact</Nav.Link>
+                  <Nav.Link href="/about">About</Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
 
-          <main className="flex-grow container mx-auto px-4 py-8">
-            {children}
+          <main className="flex-grow-1 py-4">
+            <Container>
+              {children}
+            </Container>
           </main>
 
-          <footer className="bg-gray-100 border-t">
-            <div className="container mx-auto px-4 py-8">
-            <div className="text-center text-gray-600">
-              <p>&copy; {new Date().getFullYear()} Campaign to Elect Jonathan</p>
-            </div>
-            </div>
+          <footer className="bg-light border-top py-4">
+            <Container>
+              <div className="text-center text-muted">
+                <p className="mb-0">&copy; {new Date().getFullYear()} Campaign to Elect Jonathan</p>
+              </div>
+            </Container>
           </footer>
         </div>
       </body>
