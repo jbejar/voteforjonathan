@@ -46,10 +46,11 @@ const HomePage: React.FC = () => {
                 </Row>
             </Container>
             <section className="my-5">
-            <Container className="mx-5" >
+            <Container>
             <h2>Get Involved</h2>
+            <Row><Col className="px-">
                         <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
-                            <p>Join our campaign to make a difference in our community. We need volunteers to help with canvassing, phone banking, and more.</p>
+                        </Col></Row>
                         <div className="text-center">
                             <Button
                                 href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"

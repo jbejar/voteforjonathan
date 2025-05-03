@@ -18,8 +18,8 @@ export default function ContactPage() {
               
               <h3 className="h5 mb-2">Email</h3>
               <p className="mb-3">
-                <a href="mailto:jbejar86@gmail.com">
-                  jbejar86@gmail.com
+                <a href="mailto:info@voteforjonathan.com">
+                  info@voteforjonathan.com
                 </a>
               </p>
 
@@ -33,6 +33,10 @@ export default function ContactPage() {
                 Follow us on social media for the latest updates:
               </p>
               <div className="social-icons d-flex">
+                <a href="https://www.instagram.com/voteforjonathan_official" className="text-decoration-none me-3">
+                  <i className="bi bi-instagram"></i>
+                  <span className="ms-2">Instagram</span>
+                </a>
                 <a href="https://www.facebook.com/jbejaran" className="text-decoration-none me-3">
                   <i className="bi bi-facebook"></i>
                   <span className="ms-2">Facebook</span>
