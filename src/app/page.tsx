@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
                     <div className="right-side">
                         <h2>Proven Leader</h2>
                         <ul>
-                            <li>Highland Elementary SCC Chair</li>
+                            <li>Former Highland Elementary SCC Chair</li>
                             <li>Web & Software Educator</li>
                             <li>Masters of Business Administration</li>
                             <li>Lead Software Engineer</li>
