@@ -14,10 +14,9 @@ const HomePage: React.FC = () => {
                         <div className="image-container">
                             <img src="/images/jonathan.webp" alt="Jonathan Bejarano" />
                         </div>
-                        <p>www.voteforjonathan.com</p>
                     </Col>
 
-                    <Col>
+                    <Col className="mt-5 d-flex flex-column justify-content-center">
                         <h2>Proven Leader</h2>
                         <ul>
                             <li>Former Highland Elementary SCC Chair</li>
@@ -35,26 +34,30 @@ const HomePage: React.FC = () => {
                         <p>Primary Election: August 12, 2025<br />
                             General Election: November 4, 2025</p>
 
-                        <h2>Get Involved</h2>
-                        <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
-                        <Button
-                            href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"
-                            variant="danger"
-                            size="lg"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mb-3"
-                        >
-                            Volunteer
-                        </Button>
-                        <p>Join our campaign to make a difference in our community. We need volunteers to help with canvassing, phone banking, and more.</p>
-
+                        
                     </Col>
                 </Row>
             </Container>
-            <div className="container">
+            <section className="my-5">
+            <Container className="mx-5" >
+            <h2>Get Involved</h2>
+                        <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
+                            <p>Join our campaign to make a difference in our community. We need volunteers to help with canvassing, phone banking, and more.</p>
+                        <div className="text-center">
+                            <Button
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"
+                                variant="danger"
+                                size="lg"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mb-3"
+                            >
+                                Volunteer
+                            </Button>
+                        </div>
 
-            </div>
+                        </Container>
+                        </section>
         </>
     );
 };

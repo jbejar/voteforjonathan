@@ -1,11 +1,9 @@
 'use client'
-import { Inter } from 'next/font/google'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import './globals.scss'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -14,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body >
         <div className="bg-light d-flex flex-column min-vh-100">
           <Navbar data-bs-theme="dark" bg="secondary" expand="lg" className="shadow-sm border-bottom sticky-top">
             <Container>
@@ -25,7 +23,7 @@ export default function RootLayout({
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header">Volunteer</Nav.Link>
                   <Nav.Link href="#donate">Donate</Nav.Link>
-                  <Nav.Link href="#contact">Contact</Nav.Link>
+                  <Nav.Link href="/contact">Contact</Nav.Link>
                   <Nav.Link href="#about">About</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
