@@ -1,22 +1,80 @@
+:root {
+  --primary: #444444;
+  --text: #333333;
+  --secondary: #74213C;
+  --accent: #B22222;
+  --neutral: #E0E4E5;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f0f0f0; /* Light gray background */
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--neutral);
+  color: var(--text);
+}
+
+header {
+  background-color: var(--secondary);
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: var(--neutral);
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.hero {
+  background-color: var(--primary);
+  color: var(--neutral);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.hero img {
+  max-width: 200px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.cta button {
+  background-color: var(--accent);
+  color: var(--neutral);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--secondary);
+  color: var(--neutral);
+  text-align: center;
+  padding: 1rem;
+}
 
   .container {
     width: 800px; /* Adjust as needed */
     margin: 20px auto;
-    display: flex;
-    background-color: #fff; /* White background for the main content */
+    /* display: flex; */
+    background-color: var(--neutral); /* White background for the main content */
+    color: var(--text);
     border-radius: 10px;
     overflow: hidden; /* Prevents content from overflowing rounded corners */
   }
-
+  .side-by-side {
+    display: flex;
+    flex-direction: row; /* Aligns children in a row */
+  }
   .left-side {
     width: 40%;
-    background-color: #293a87; /* Dark Blue */
+    background-color: var(--primary); /* Dark Blue */
     color: white;
     padding: 20px;
     text-align: center;
