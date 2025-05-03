@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 
 const HomePage: React.FC = () => {
@@ -12,7 +13,13 @@ const HomePage: React.FC = () => {
                         <p>DISTRICT 3</p>
                         <p>FOR SCHOOL BOARD</p>
                         <div className="image-container">
-                            <img src="/images/jonathan.webp" alt="Jonathan Bejarano" />
+                            <Image 
+                                src="/images/jonathan.webp" 
+                                alt="Jonathan Bejarano" 
+                                width={300}
+                                height={400}
+                                priority
+                            />
                         </div>
                     </Col>
 

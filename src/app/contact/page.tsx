@@ -13,7 +13,7 @@ export default function ContactPage() {
           <Card className="shadow-sm">
             <Card.Body>
               <p className="mb-4">
-                We'd love to hear from you! Here's how you can reach me:
+                We&apos;d love to hear from you! Here&apos;s how you can reach me:
               </p>
               
               <h3 className="h5 mb-2">Email</h3>
