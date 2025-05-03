@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const HomePage: React.FC = () => {
     return (
@@ -36,12 +37,16 @@ const HomePage: React.FC = () => {
 
                             <h2>Get Involved</h2>
                             <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header" 
-                               className="cta" 
-                               target="_blank" 
-                               rel="noopener noreferrer">
+                            <Button 
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"
+                                variant="danger"
+                                size="lg"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mb-3"
+                            >
                                 Volunteer
-                            </a>
+                            </Button>
                             <p>Join our campaign to make a difference in our community. We need volunteers to help with canvassing, phone banking, and more.</p>
 
                     </div>

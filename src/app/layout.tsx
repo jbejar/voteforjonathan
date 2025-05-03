@@ -15,8 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="d-flex flex-column min-vh-100">
-          <Navbar bg="white" expand="lg" className="shadow-sm border-bottom sticky-top">
+        <div className="bg-light d-flex flex-column min-vh-100">
+          <Navbar data-bs-theme="dark" bg="secondary" expand="lg" className="shadow-sm border-bottom sticky-top">
             <Container>
               <Navbar.Brand href="/">Vote for Jonathan</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -38,8 +38,8 @@ export default function RootLayout({
             </Container>
           </main>
 
-          <footer className="bg-light border-top py-4">
-            <Container>
+          <footer className="bg-secondary border-top py-4">
+            <Container data-bs-theme="dark">
               <div className="text-center text-muted">
                 <p className="mb-0">&copy; {new Date().getFullYear()} Campaign to Elect Jonathan</p>
               </div>
