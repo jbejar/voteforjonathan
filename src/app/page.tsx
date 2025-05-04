@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
                                     /></a>
                             </div>
                             <CardFooter className="p-3 text-center">
-                                District 3 includes Highland and parts of Lehi
+                                District 3
                             </CardFooter>
                         </Card>
                     </Col>
