@@ -13,16 +13,14 @@ $theme-colors: (
   "dark": #333333
 );
 
-
 // Font family variables
 $font-family-base: 'Open Sans', system-ui, -apple-system, sans-serif;
 $font-family-sans-serif: 'Open Sans', system-ui, -apple-system, sans-serif;
 $font-size-base: 1.5rem;
 $line-height-base: 1.5;
 $headings-font-family: 'Lora', serif;
-@import "bootstrap/scss/bootstrap";
 
-// Import Bootstrap and its default variables
+@import "bootstrap/scss/bootstrap";
 
 /* Minimal custom styles that aren't available in Bootstrap */
 .hero img {
@@ -41,4 +39,12 @@ $headings-font-family: 'Lora', serif;
     font-size: 1.5rem;
     margin-right: 0.5rem;
   }
+}
+
+// Custom footer styles
+footer.bg-secondary {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/aspen.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-top: none !important;
 }

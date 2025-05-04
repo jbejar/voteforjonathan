@@ -173,10 +173,10 @@ const HomePage: React.FC = () => {
                         <CardTitle className="h2">Election Details</CardTitle>
                         <CardText className="text-center">
                             <i className="bi bi-calendar-event me-2 my-2 fs-1"></i><br />
-                            <p className='text-start'>
+                            <span className='text-start'>
                                 Primary: August 12, 2025<br />
                                 General: November 4, 2025<br />
-                            </p>
+                            </span>
                         </CardText>
                     </CardBody>
                 </Card>
