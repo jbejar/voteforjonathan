@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
             <Container>
                 <Row>
 
-                    <h1 className="display-2 text-center mb-4 mx-4">Jonathan Bejarano for
+                    <h1 className="display-2 text-center mb-4 px-4">Jonathan Bejarano for
                         Aspen Peaks School Board</h1>
 
 
@@ -39,9 +39,9 @@ const HomePage: React.FC = () => {
                         </div>
                     </Col>
                     <Col lg={12} data-bs-theme="dark">
+                                <a href="https://experience.arcgis.com/experience/22f54c8c0566415787aaea15dd0e0c5f" target="_blank" rel="noopener noreferrer">
                         <Card bg="primary" className="my-4 shadow-sm" style={{ maxWidth: '800px', margin: '0 auto' }}>
                             <div className="card-body p-0">
-                                <a href="https://experience.arcgis.com/experience/22f54c8c0566415787aaea15dd0e0c5f" target="_blank" rel="noopener noreferrer">
                                     <Image
                                         src="/images/District3Map.png"
                                         alt="Aspen Peaks School District"
@@ -49,12 +49,13 @@ const HomePage: React.FC = () => {
                                         height={800}
                                         priority
                                         className="img-fluid"
-                                    /></a>
+                                    />
                             </div>
                             <CardFooter className="p-3 text-center">
                                 District 3
                             </CardFooter>
                         </Card>
+                                    </a>
                     </Col>
 
 
@@ -113,7 +114,7 @@ const HomePage: React.FC = () => {
                             <li className='mb-3'><h3 className="fw-bold">Make wise investments for our future</h3>
                                 <div className="text-center image-container m-4">
                                     <Image
-                                        src="/images/boy-reading-with-mom.jpg"
+                                        src="/images/boy-reading-with-mom.webp"
                                         alt="Boy Reading with Mom"
                                         width={400}
                                         height={400}
@@ -132,7 +133,7 @@ const HomePage: React.FC = () => {
                             <li className='mb-3'><h3 className="fw-bold">Retain our highly qualified teachers and staff</h3>
                                 <div className="text-center image-container m-4">
                                     <Image
-                                        src="/images/teacher.jpg"
+                                        src="/images/teacher.webp"
                                         alt="Math Teacher"
                                         width={400}
                                         height={400}
@@ -149,7 +150,7 @@ const HomePage: React.FC = () => {
                             <li className='mb-3'><h3 className="fw-bold">Select a highly qualified superintendent</h3>
                                 <div className="text-center image-container m-4">
                                     <Image
-                                        src="/images/super-interview.jpg"
+                                        src="/images/super-interview.webp"
                                         alt="Inteview for Superintendent"
                                         width={400}
                                         height={400}
