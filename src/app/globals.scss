@@ -13,9 +13,12 @@ $theme-colors: (
   "dark": #333333
 );
 
+
 // Font family variables
 $font-family-base: 'Open Sans', system-ui, -apple-system, sans-serif;
 $font-family-sans-serif: 'Open Sans', system-ui, -apple-system, sans-serif;
+$font-size-base: 1.5rem;
+$line-height-base: 1.5;
 $headings-font-family: 'Lora', serif;
 @import "bootstrap/scss/bootstrap";
 
