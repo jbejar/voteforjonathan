@@ -129,8 +129,7 @@ const HomePage: React.FC = () => {
                                     in efficiency through wise investments in our teachers, technology and our buildings.
                                      I believe we should enter into shared service agreements with other districts. 
                                      I will ensure that negotiations are fair, that the school
-                                    districts remain on good terms, and that our students continue to have access to as many programs as possible. Where not possible, 
-                                    there should be a seamless transition for those students to other educational opportunities.</p>
+                                    districts remain on good terms, and that our students continue to have access to programs they had under the old district.</p>
                             </li>
                             <li className='mb-3'><h3 className="fw-bold">Retain our highly qualified teachers and staff</h3>
                                 <div className="text-center image-container m-4">
