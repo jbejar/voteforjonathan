@@ -125,8 +125,8 @@ const HomePage: React.FC = () => {
                                 </div>
                                 <p>The process of splitting away from Alpine School District will involve
                                     creating a realistic strategic plan. There will be many tough decisions, but my background gives me the skills
-                                    necessary to make decisions driven on the data. I believe should grow
-                                    in efficiency through wise investments in our teachers, technology and our buildings.
+                                    necessary to make decisions driven on data. Our goal should be to grow
+                                    in efficiency through wise investments in our teachers, technology and our school buildings.
                                      I believe we should enter into shared service agreements with other districts. 
                                      I will ensure that negotiations are fair, that the school
                                     districts remain on good terms, and that our students continue to have access to programs they had under the old district.</p>
