@@ -124,11 +124,13 @@ const HomePage: React.FC = () => {
                                     />
                                 </div>
                                 <p>The process of splitting away from Alpine School District will involve
-                                    the negotiation of assets and debts. My experience in business gives me
-                                    the skills necessary to understand the financial consequences of this
-                                    negotiation. I will ensure that negotiations are fair, that the school
-                                    districts remain on good terms, and that our students have the resources
-                                    they need as our new school district grows into the future.</p>
+                                    creating a realistic strategic plan. There will be many tough decisions, but my background gives me the skills
+                                    necessary to make decisions driven on the data. I believe should grow
+                                    in efficiency through wise investments in our teachers, technology and our buildings.
+                                     I believe we should enter into shared service agreements with other districts. 
+                                     I will ensure that negotiations are fair, that the school
+                                    districts remain on good terms, and that our students continue to have access to as many programs as possible. Where not possible, 
+                                    there should be a seamless transition for those students to other educational opportunities.</p>
                             </li>
                             <li className='mb-3'><h3 className="fw-bold">Retain our highly qualified teachers and staff</h3>
                                 <div className="text-center image-container m-4">
