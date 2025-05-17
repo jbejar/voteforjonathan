@@ -7,7 +7,7 @@ title: 'Vote for Jonathan | Aspen Peaks School Board',
   robots: 'index, follow',
   themeColor: '#6c757d', // Matches your secondary color
   openGraph: {
-    title: 'Vote for Jonathan Bejarano | Aspen Peaks School Board',
+    title: 'Vote for Jonathan | Aspen Peaks School Board',
     description: 'I have a hopeful vision for the future and the necessary skills to help the students of the Aspen Peaks School District succeed.',
     type: 'website',
     url: 'https://voteforjonathan.com',
@@ -30,7 +30,7 @@ title: 'Vote for Jonathan | Aspen Peaks School Board',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vote for Jonathan Bejarano | Aspen Peaks School Board',
+    title: 'Vote for Jonathan | Aspen Peaks School Board',
     description: 'I have a hopeful vision for the future and the necessary skills to help the students of the Aspen Peaks School District succeed.',
     images: ['/images/jonathan.webp'],
   },
