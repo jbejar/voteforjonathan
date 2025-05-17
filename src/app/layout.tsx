@@ -4,7 +4,6 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { usePathname } from 'next/navigation'
 import './globals.scss'
-import { DefaultSeo } from 'next-seo';
 
 import SEO from './next-seo.config';
 export default function RootLayout({
