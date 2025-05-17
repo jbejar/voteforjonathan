@@ -4,7 +4,9 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { usePathname } from 'next/navigation'
 import './globals.scss'
+import { DefaultSeo } from 'next-seo';
 
+import SEO from './next-seo.config';
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -14,7 +16,25 @@ export default function RootLayout({
   const pathname = usePathname()
   return (
     <html lang="en">
-      <body >
+      <head>
+<title>{SEO.title}</title>
+<meta name="description" content={SEO.description} />
+
+        <meta property="og:url" content="https://www.voteforjonathan.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={SEO.openGraph.title} />
+        <meta property="og:description" content={SEO.openGraph.description} />
+        <meta property="og:image" content={SEO.openGraph.images[0].url} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="voteforjonathan.com" />
+        <meta property="twitter:url" content="https://www.voteforjonathan.com/" />
+        <meta name="twitter:title" content={SEO.twitter.title} />
+        <meta name="twitter:description" content={SEO.twitter.description} />
+        <meta name="twitter:image" content={SEO.twitter.images[0]} />
+
+      </head>
+      <body>
         <div className="bg-light d-flex flex-column min-vh-100">
           <Navbar data-bs-theme="dark" bg="secondary" expand="lg" className="shadow-sm border-bottom sticky-top">
             <Container>
