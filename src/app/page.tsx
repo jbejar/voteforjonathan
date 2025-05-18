@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
                                         alt="Aspen Peaks School District"
                                         width={800}
                                         height={558}
-                                        priority
+ loading="lazy"
                                         className="img-fluid"
                                     />
                             </div>
@@ -116,10 +116,10 @@ const HomePage: React.FC = () => {
                                     <Image
                                         src="/images/boy-reading-with-mom.webp"
                                         alt="Boy Reading with Mom"
+                                        loading="lazy"
                                         width={400}
                                         height={400}
                                         style={{ maxWidth: '400px' }}
-                                        priority
                                         className="img-fluid"
                                     />
                                 </div>
@@ -136,11 +136,11 @@ const HomePage: React.FC = () => {
                                     <Image
                                         src="/images/teacher.webp"
                                         alt="Math Teacher"
+                                        loading="lazy"
                                         width={400}
                                         height={400}
                                         style={{ maxWidth: '400px' }}
-                                        priority
-                                        className="img-fluid"
+className="img-fluid"
                                     />
                                 </div>
                                 <p>I want to ensure that the transition from Alpine to Aspen Peaks is as
@@ -153,11 +153,10 @@ const HomePage: React.FC = () => {
                                     <Image
                                         src="/images/super-interview.webp"
                                         alt="Inteview for Superintendent"
+                                        loading="lazy"
                                         width={400}
                                         height={400}
-                                        style={{ maxWidth: '400px' }}
-                                        priority
-                                        className="img-fluid"
+                                        style={{ maxWidth: '400px' }}className="img-fluid"
                                     />
                                 </div>
                                 <p>Choosing the new superintendent of the Aspen Peaks School District is
