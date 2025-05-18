@@ -16,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-<title>{SEO.title}</title>
-<meta name="description" content={SEO.description} />
+        <title>{SEO.title}</title>
+        <meta name="description" content={SEO.description} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
 
         <meta property="og:url" content="https://www.voteforjonathan.com/" />
         <meta property="og:type" content="website" />

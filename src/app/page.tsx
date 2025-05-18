@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
                         <Card bg="primary" className="my-4 shadow-sm" style={{ maxWidth: '800px', margin: '0 auto' }}>
                             <div className="card-body p-0">
                                     <Image
-                                        src="/images/District3Map.png"
+                                        src="/images/District3Map.webp"
                                         alt="Aspen Peaks School District"
                                         width={800}
                                         height={800}
