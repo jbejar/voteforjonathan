@@ -19,6 +19,7 @@ export default function RootLayout({
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preload" href="/images/aspenbg.webp" as="image" type="image/webp" />
 
         {/* Open Graph metadata */}
         <meta property="og:url" content="https://www.voteforjonathan.com/" />
