@@ -1,8 +1,5 @@
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
-// Import Bootstrap Icons
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+// Using CSS variables for fonts instead of Google Fonts import
+// Bootstrap Icons will be loaded inline in components where needed
 
 // Override default variables before the import
 $theme-colors: (
@@ -13,13 +10,16 @@ $theme-colors: (
   "dark": #333333
 );
 
+// Make sure these variables are properly applied
+
 // Font family variables
-$font-family-base: 'Open Sans', system-ui, -apple-system, sans-serif;
-$font-family-sans-serif: 'Open Sans', system-ui, -apple-system, sans-serif;
+$font-family-base: var(--font-open-sans), system-ui, -apple-system, sans-serif;
+$font-family-sans-serif: var(--font-open-sans), system-ui, -apple-system, sans-serif;
 $font-size-base: 1.5rem;
 $line-height-base: 1.5;
-$headings-font-family: 'Lora', serif;
+$headings-font-family: var(--font-lora), serif;
 
+// Import full Bootstrap instead of just critical components to ensure all styles are available
 @import "bootstrap/scss/bootstrap";
 
 /* Minimal custom styles that aren't available in Bootstrap */
@@ -47,4 +47,18 @@ footer.bg-secondary {
   background-size: cover !important;
   background-position: center !important;
   border-top: none !important;
+}
+
+// Debug classes to ensure theme colors are working
+.bg-primary-debug {
+  background-color: $primary !important;
+}
+.bg-secondary-debug {
+  background-color: $secondary !important;
+}
+.text-primary-debug {
+  color: $primary !important;
+}
+.text-secondary-debug {
+  color: $secondary !important;
 }

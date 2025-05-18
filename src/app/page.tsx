@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
                                         src="/images/District3Map.webp"
                                         alt="Aspen Peaks School District"
                                         width={800}
-                                        height={800}
+                                        height={558}
                                         priority
                                         className="img-fluid"
                                     />

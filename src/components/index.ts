@@ -1,6 +1,7 @@
 // src/components/index.ts
 
-// export { default as Header } from './Header';
-// export { default as Footer } from './Footer';
-// export { default as Button } from './Button';
+export { default as AppNavbar } from './AppNavbar';
+export { default as Footer } from './Footer';
+export { default as BootstrapLoader } from './BootstrapLoader';
+export { default as OptimizedImage } from './OptimizedImage';
 // Add more exports as needed for other components

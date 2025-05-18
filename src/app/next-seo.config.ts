@@ -1,5 +1,5 @@
-export default {
-title: 'Vote for Jonathan | Aspen Peaks School Board',
+const SEO = {
+  title: 'Vote for Jonathan | Aspen Peaks School Board',
   description: 'Support Jonathan Bejarano for Aspen Peaks School Board. A dedicated educator committed to improving our schools and community.',
   viewport: 'width=device-width, initial-scale=1',
   keywords: 'election, campaign, jonathan bejarano, vote, school board, aspen peaks, education, Highland UT school board, Aspen Peaks School District',
@@ -35,3 +35,5 @@ title: 'Vote for Jonathan | Aspen Peaks School Board',
     images: ['/images/jonathan.webp'],
   },
 };
+
+export default SEO;
