@@ -195,7 +195,7 @@ className="img-fluid"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mb-3"
-                    >
+                >
                         Volunteer
                     </Button>
                 </div>
