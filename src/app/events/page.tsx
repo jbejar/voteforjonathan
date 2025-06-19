@@ -12,33 +12,61 @@ export default function EventCalendarPage() {
       <Row className="border-bottom py-4 mb-4 bg-white rounded">
         <Col xs={2} className="text-end">
           <h1 className="display-4">
-            <span className="badge bg-secondary">5</span>
+            <span className="badge bg-secondary">24</span>
           </h1>
           <h2>JUN</h2>
         </Col>
         <Col xs={10}>
-          <h3 className="text-uppercase fw-bold">Highland Farmers Market</h3>
+          <h3 className="text-uppercase fw-bold">Come Meet Jonathan!</h3>
+          <p className="mb-2"><strong>Candidate for Aspen Peaks School Board, Seat 3</strong></p>
           <ul className="list-inline">
             <li className="list-inline-item">
-              <i className="bi bi-calendar" aria-hidden="true"></i> Thursday
+              <i className="bi bi-calendar" aria-hidden="true"></i> Tuesday
             </li>
             <li className="list-inline-item">
-              <i className="bi bi-clock" aria-hidden="true"></i> 4:00 PM - 8:00 PM
+              <i className="bi bi-clock" aria-hidden="true"></i> 7:00 PM - 8:30 PM
             </li>
             <li className="list-inline-item">
-              <i className="bi bi-geo-alt" aria-hidden="true"></i>
-                 &nbsp;<a href="https://maps.app.goo.gl/a52uyST37agxgmgW6" target="_blank" rel="noopener noreferrer">Heritage Park
-                </a>
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> 6341 W 10890 N, Highland
             </li>
           </ul>
           <p>
-            Join me at the Highland Farmers Market! I&apos;ll be there to meet with community members and discuss the issues that matter to you. There will be carnival games for kids, making it a perfect family-friendly event. Come say hello and share your thoughts on how we can improve our community together!
+            <strong>Bring your family for root beer floats and to chat about the new Aspen Peaks School District!</strong> This is a wonderful opportunity to have a personal conversation about education and the issues that matter most to our community. Come enjoy refreshments while we discuss how we can build a strong foundation for our new school district together.
           </p>
         </Col>
       </Row>
 
       {/* Event 2 */}
       <Row className="border-bottom py-4 mb-4">
+        <Col xs={2} className="text-end">
+          <h1 className="display-4">
+            <span className="badge bg-secondary">25</span>
+          </h1>
+          <h2>JUN</h2>
+        </Col>
+        <Col xs={10}>
+          <h3 className="text-uppercase fw-bold">Meet the Candidates for Utah County Republican Party</h3>
+          <ul className="list-inline">
+            <li className="list-inline-item">
+              <i className="bi bi-calendar" aria-hidden="true"></i> Wednesday
+            </li>
+            <li className="list-inline-item">
+              <i className="bi bi-clock" aria-hidden="true"></i> 6:30 PM - 8:00 PM
+            </li>
+            <li className="list-inline-item">
+              
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> Mountain Ridge Jr.
+            </li>
+            
+          </ul>
+          <p>
+            Join us for a special meet and greet with candidates for Utah County Republican Party for District 3 and District 4. The public is welcome to attend this important community event where you can meet multiple candidates and learn about their platforms. This is your chance to engage with local leaders and make informed decisions for our community&apos;s future.
+          </p>
+        </Col>
+      </Row>
+
+      {/* Event 3 */}
+      <Row className="border-bottom py-4 mb-4 bg-white rounded">
         <Col xs={2} className="text-end">
           <h1 className="display-4">
             <span className="badge bg-secondary">26</span>
@@ -55,9 +83,7 @@ export default function EventCalendarPage() {
               <i className="bi bi-clock" aria-hidden="true"></i> 4:00 PM - 8:00 PM
             </li>
             <li className="list-inline-item">
-                <i className="bi bi-geo-alt" aria-hidden="true"></i>
-                 &nbsp;<a href="https://maps.app.goo.gl/a52uyST37agxgmgW6" target="_blank" rel="noopener noreferrer">Heritage Park
-                </a>
+                <i className="bi bi-geo-alt" aria-hidden="true"></i> <a href="https://maps.app.goo.gl/a52uyST37agxgmgW6" target="_blank" rel="noopener noreferrer">Heritage Park</a>
             </li>
           </ul>
           <p>
@@ -66,8 +92,8 @@ export default function EventCalendarPage() {
         </Col>
       </Row>
 
-      {/* Event 3 */}
-      <Row className="border-bottom py-4 mb-4 bg-white rounded">
+      {/* Event 4 */}
+      <Row className="border-bottom py-4 mb-4">
         <Col xs={2} className="text-end">
           <h1 className="display-4">
             <span className="badge bg-secondary">2</span>
@@ -81,9 +107,7 @@ export default function EventCalendarPage() {
               <i className="bi bi-calendar" aria-hidden="true"></i> Saturday
             </li>
             <li className="list-inline-item">
-              <i className="bi bi-geo-alt" aria-hidden="true"></i>
-                 &nbsp;<a href="https://maps.app.goo.gl/a52uyST37agxgmgW6" target="_blank" rel="noopener noreferrer">Heritage Park
-                </a>
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> <a href="https://maps.app.goo.gl/a52uyST37agxgmgW6" target="_blank" rel="noopener noreferrer">Heritage Park</a>
             </li>
           </ul>
           <p>
@@ -91,6 +115,38 @@ export default function EventCalendarPage() {
           </p>
         </Col>
       </Row>
+
+      {/* Past Events Section */}
+      <div className="mt-5 pt-4 border-top">
+        <h2 className="text-center mb-4 text-muted">Past Events</h2>
+        
+        {/* Past Event 1 */}
+        <Row className="py-4 mb-4 bg-light rounded opacity-75">
+          <Col xs={2} className="text-end">
+            <h1 className="display-4">
+              <span className="badge bg-light text-muted border">5</span>
+            </h1>
+            <h2 className="text-muted">JUN</h2>
+          </Col>
+          <Col xs={10}>
+            <h3 className="text-uppercase fw-bold text-muted">Highland Farmers Market</h3>
+            <ul className="list-inline">
+              <li className="list-inline-item text-muted">
+                <i className="bi bi-calendar" aria-hidden="true"></i> Thursday
+              </li>
+              <li className="list-inline-item text-muted">
+                <i className="bi bi-clock" aria-hidden="true"></i> 4:00 PM - 8:00 PM
+              </li>
+              <li className="list-inline-item text-muted">
+                <i className="bi bi-geo-alt" aria-hidden="true"></i> <span>Heritage Park</span>
+              </li>
+            </ul>
+            <p className="text-muted">
+              <strong>Event completed!</strong> Thank you to everyone who joined me at the Highland Farmers Market. It was wonderful meeting with community members and discussing the issues that matter to you. The carnival games for kids were a hit, making it a perfect family-friendly event.
+            </p>
+          </Col>
+        </Row>
+      </div>
     </Container>
   )
 }
