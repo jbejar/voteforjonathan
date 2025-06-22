@@ -92,8 +92,35 @@ export default function EventCalendarPage() {
         </Col>
       </Row>
 
+      {/* Event 5 */}
+      <Row className="border-bottom py-4 mb-4 rounded">
+        <Col xs={2} className="text-end">
+          <h1 className="display-4">
+            <span className="badge bg-secondary">7</span>
+          </h1>
+          <h2>JUL</h2>
+        </Col>
+        <Col xs={10}>
+          <h3 className="text-uppercase fw-bold">Open House / Endorsement Convention</h3>
+          <ul className="list-inline">
+            <li className="list-inline-item">
+              <i className="bi bi-calendar" aria-hidden="true"></i> Monday
+            </li>
+            <li className="list-inline-item">
+              <i className="bi bi-clock" aria-hidden="true"></i> 6:00 PM - 9:00 PM
+            </li>
+            <li className="list-inline-item">
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> Skyridge High School
+            </li>
+          </ul>
+          <p>
+            Join us for an Open House and Endorsement Convention at Skyridge High School. This is a great opportunity to meet the candidates, and ask questions. All are welcome to attend and get involved in shaping the future of our community!
+          </p>
+        </Col>
+      </Row>
+
       {/* Event 4 */}
-      <Row className="border-bottom py-4 mb-4">
+      <Row className="border-bottom py-4 mb-4 bg-white rounded">
         <Col xs={2} className="text-end">
           <h1 className="display-4">
             <span className="badge bg-secondary">2</span>
@@ -115,6 +142,8 @@ export default function EventCalendarPage() {
           </p>
         </Col>
       </Row>
+
+
 
       {/* Past Events Section */}
       <div className="mt-5 pt-4 border-top">
