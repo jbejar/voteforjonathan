@@ -55,7 +55,7 @@ export default function EventCalendarPage() {
             </li>
             <li className="list-inline-item">
               
-              <i className="bi bi-geo-alt" aria-hidden="true"></i> Mountain Ridge Jr.
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> Timberline Middle School
             </li>
             
           </ul>
