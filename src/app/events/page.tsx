@@ -32,7 +32,7 @@ export default function EventCalendarPage() {
             </li>
           </ul>
           <p>
-            Join us for a special meet and greet with candidates for Utah County Republican Party for District 1, 2, 3, 5 and 6. The public is welcome to attend this important community event where you can meet multiple candidates and learn about their platforms. This is your chance to engage with local leaders and make informed decisions for our community's future.
+            
           </p>
         </Col>
       </Row>
@@ -198,7 +198,7 @@ export default function EventCalendarPage() {
             
           </ul>
           <p className="text-muted">
-            <strong>Event completed!</strong> Join us for a special meet and greet with candidates for Utah County Republican Party for District 3 and District 4. The public is welcome to attend this important community event where you can meet multiple candidates and learn about their platforms. This is your chance to engage with local leaders and make informed decisions for our community's future.
+            <strong>Event completed!</strong> Join us for a special meet and greet with candidates for Utah County Republican Party for District 3 and District 4. The public is welcome to attend this important community event where you can meet multiple candidates and learn about their platforms. This is your chance to engage with local leaders and make informed decisions for our community&apos;s future.
           </p>
         </Col>
             </Row>
