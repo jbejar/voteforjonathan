@@ -168,6 +168,28 @@ className="img-fluid"
                     </Col>
                 </Row>
             </Container>
+            <Container fluid className="bg-light py-5 bg-white">
+                <Container>
+                    <Row>
+                        <Col lg={8} className="mx-auto">
+                            <h2 className="display-5 text-center mb-4">Meet Jonathan - A Message to Our Community</h2>
+                            <p className="lead text-center mb-4">
+                                Watch my vision for the future of education in our district and learn why your support matters.
+                            </p>
+                            <div className="ratio ratio-16x9 mb-4 shadow rounded overflow-hidden">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/RbF4gqY7XlY" 
+                                    title="Jonathan Bejarano - Your Voice for Aspen Peaks School Board"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowFullScreen
+                                    className="rounded"
+                                ></iframe>
+                            </div>
+                            
+                        </Col>
+                    </Row>
+                </Container>
+            </Container>
             <Container>
                 <Card bg="primary" text="white" className="my-4 shadow-sm" style={{ maxWidth: '500px', margin: '0 auto' }}>
                     <CardBody>
@@ -181,24 +203,53 @@ className="img-fluid"
                         </CardText>
                     </CardBody>
                 </Card>
+
             </Container>
             <Container fluid className="bg-white p-5">
                 <h2 data-bs-theme="dark">Get Involved</h2>
                 <Row><Col className="px-">
                     <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
                 </Col></Row>
-                <div className="text-center">
-                    <Button
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"
-                        variant="danger"
-                        size="lg"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mb-3"
-                >
-                        Volunteer
-                    </Button>
-                </div>
+                
+                <Row className="my-4">
+                    <Col lg={6} className="text-center mb-4">
+                        <div className="mb-3">
+                            <Image
+                                src="/images/sign/sign.webp"
+                                alt="Jonathan Bejarano Campaign Sign"
+                                width={303}
+                                height={228}
+                                className="img-fluid shadow"
+                            />
+                        </div>
+                        <Button
+                            href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"
+                            variant="primary"
+                            size="lg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mb-3"
+                        >
+                            Request a Yard Sign
+                        </Button>
+                    </Col>
+                    <Col lg={6} className="text-center">
+                        <div className="text-center mb-4">
+                            <h4 className="mb-3">Volunteer with Us</h4>
+                            <p className="my-5" >Help spread the word and make a difference in our community. There are many ways to help, whether it be making phone calls or helping knock doors.</p>
+                            <Button
+                                href="https://docs.google.com/forms/d/e/1FAIpQLScLZHkqp8857N5KkSeSMbBIhP3QXi3dEvbR7OBD-Gb3i3bRXg/viewform?usp=header"
+                                variant="danger"
+                                size="lg"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mb-3"
+                            >
+                                Volunteer
+                            </Button>
+                        </div>
+                    </Col>
+                </Row>
 
             </Container>
         </>
