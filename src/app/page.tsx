@@ -15,6 +15,15 @@ const HomePage: React.FC = () => {
                 </Row>
                 <Row className="mx-5">
                     <Col lg={8} className="mx-auto">
+                    <div className="ratio ratio-16x9 mb-4 shadow rounded overflow-hidden">
+                            <iframe 
+                                src="https://www.youtube.com/embed/RbF4gqY7XlY" 
+                                title="Jonathan Bejarano - Your Voice for Aspen Peaks School Board"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowFullScreen
+                                className="rounded"
+                            ></iframe>
+                        </div>
                         <div className="lead my-4 text-center">
                             <p>Hello!
                                 My name is Jonathan Bejarano and I
@@ -24,19 +33,8 @@ const HomePage: React.FC = () => {
                                 new Aspen Peaks School District.</p>
                         </div>
                         
-                        <h2 className="display-6 text-center mb-4">Meet Jonathan - A Message to Our Community</h2>
-                        <p className="lead text-center mb-4">
-                            Watch my vision for the future of education in our district and learn why your support matters.
-                        </p>
-                        <div className="ratio ratio-16x9 mb-4 shadow rounded overflow-hidden">
-                            <iframe 
-                                src="https://www.youtube.com/embed/RbF4gqY7XlY" 
-                                title="Jonathan Bejarano - Your Voice for Aspen Peaks School Board"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowFullScreen
-                                className="rounded"
-                            ></iframe>
-                        </div>
+                    
+                        
                     </Col>
                     <Col lg={12} data-bs-theme="dark">
                                 <a href="https://experience.arcgis.com/experience/22f54c8c0566415787aaea15dd0e0c5f" target="_blank" rel="noopener noreferrer">
