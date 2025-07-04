@@ -18,7 +18,17 @@ export default function ContactPage() {
               <p className="mb-4">
           We&apos;d love to hear from you! Here&apos;s how you can reach me:
               </p>
-              
+                <div className="mb-4 text-center">
+                <Image 
+                  src="/images/jonathan.webp"
+                  alt=""
+                  width={200}
+                  height={200}
+                  className="rounded-circle img-fluid shadow-sm mb-3"
+                />
+                <h3 className="h4 mb-0">Jonathan Bejarano</h3>
+                <p className="text-muted">Candidate for Aspen Peaks School Board</p>
+                </div>
               <h3 className="h5 mb-2">Email</h3>
               <p className="mb-3">
           <a href="mailto:info@voteforjonathan.com">

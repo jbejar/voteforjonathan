@@ -84,7 +84,7 @@ export default function ClassSizeInfoPage() {
 
     // Chart dimensions
     const margin = { top: 60, right: 40, bottom: 120, left: 120 }
-    const width = 800 - margin.left - margin.right
+    const width = Math.min(950, window.innerWidth - 83) - margin.left - margin.right
     const height = 1000 - margin.bottom - margin.top
 
     // Create SVG
@@ -112,6 +112,7 @@ export default function ClassSizeInfoPage() {
       .attr("x", (width + margin.left + margin.right) / 2)
       .attr("y", margin.top / 2)
       .attr("text-anchor", "middle")
+      .style("font-family", "Open Sans, sans-serif")
       .style("font-size", "18px")
       .style("font-weight", "bold")
       .style("fill", "#666")
@@ -126,7 +127,7 @@ export default function ClassSizeInfoPage() {
       .attr("height", yScale.bandwidth() / 2)
       .attr("x", 0)
       .attr("width", 0)
-      .style("fill", "#555")
+      .style("fill", "#444444")
       .transition()
       .duration(1500)
       .delay((d, i) => i * 50)
@@ -141,7 +142,7 @@ export default function ClassSizeInfoPage() {
       .attr("height", yScale.bandwidth() / 2)
       .attr("x", 0)
       .attr("width", 0)
-      .style("fill", "#d32f2f")
+      .style("fill", "#B22222")
       .transition()
       .duration(1500)
       .delay((d, i) => i * 50)
@@ -273,6 +274,19 @@ export default function ClassSizeInfoPage() {
             </Card.Header>
             <Card.Body className="text-center">
               <div ref={chartRef} className="d-flex justify-content-center"></div>
+                <footer className="pt-1 border-top">
+                <p className="text-muted small mb-0" style={{ fontSize: '1.2rem' }}>
+                  <strong>Source:</strong> Utah State Board of Education - {' '}
+                  <a 
+                  href="https://schools.utah.gov/datastatistics/reports" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                  >
+                  schools.utah.gov/datastatistics/reports
+                  </a>
+                </p>
+                </footer>
             </Card.Body>
           </Card>
         </Col>
@@ -307,7 +321,6 @@ export default function ClassSizeInfoPage() {
               <ul className="mb-0">
                 <li>Advocating for strategic hiring to reduce student-teacher ratios</li>
                 <li>Supporting efficient resource allocation to maximize classroom impact</li>
-                <li>Working with the state legislature on education funding improvements</li>
                 <li>Exploring innovative solutions to optimize learning environments</li>
               </ul>
             </Card.Body>
