@@ -20,6 +20,7 @@ const AppNavbar: React.FC = () => {
             >
               Volunteer
             </Nav.Link>
+            <Nav.Link href="/info">Info</Nav.Link>
             <Nav.Link 
               href="https://account.venmo.com/u/Jonathan-Bejarano-2" 
               target="_blank" 

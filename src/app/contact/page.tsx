@@ -59,7 +59,7 @@ export default function ContactPage() {
     <Container fluid className="py-5 bg-white">
 <div className="text-center bg">
             <Image src="/images/sign/sign.webp"
-                  alt="Jonathan Bejarano Campaign Sign"
+                  alt="Vote for Jonathan Bejarano Aspen Peaks School Board"
                   width={303}
                   height={228}
                   className="img-fluid shadow"

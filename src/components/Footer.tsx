@@ -19,6 +19,9 @@ const Footer: React.FC = () => {
           {pathname !== '/contact' && (
             <Nav.Link href="/contact" className="text-light my-2">Contact Us</Nav.Link>
           )}
+          {pathname !== '/info' && (
+            <Nav.Link href="/info" className="text-light my-2">Info</Nav.Link>
+          )}
           <p className="mb-0">&copy; {new Date().getFullYear()} Campaign to Elect Jonathan</p>
         </div>
       </Container>

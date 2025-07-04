@@ -14,28 +14,28 @@ const HomePage: React.FC = () => {
 
                 </Row>
                 <Row className="mx-5">
-                    <Col lg={4} md={5} sm={12} className="text-center" style={{ maxWidth: '300px', margin: '0 auto' }}>
-
-                        <div className="image-container">
-                            <Image
-                                src="/images/jonathan.webp"
-                                alt="Jonathan Bejarano"
-                                width={300}
-                                height={400}
-                                priority
-                            />
-                        </div>
-                    </Col>
-                    <Col md={7} lg={6} xl={12}>
-                        <div className="lead my-4">
+                    <Col lg={8} className="mx-auto">
+                        <div className="lead my-4 text-center">
                             <p>Hello!
                                 My name is Jonathan Bejarano and I
                                 would be honored to represent the
                                 citizens of district 3 (includes all of
                                 Highland and parts of Lehi) in the
                                 new Aspen Peaks School District.</p>
-
-
+                        </div>
+                        
+                        <h2 className="display-6 text-center mb-4">Meet Jonathan - A Message to Our Community</h2>
+                        <p className="lead text-center mb-4">
+                            Watch my vision for the future of education in our district and learn why your support matters.
+                        </p>
+                        <div className="ratio ratio-16x9 mb-4 shadow rounded overflow-hidden">
+                            <iframe 
+                                src="https://www.youtube.com/embed/RbF4gqY7XlY" 
+                                title="Jonathan Bejarano - Your Voice for Aspen Peaks School Board"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowFullScreen
+                                className="rounded"
+                            ></iframe>
                         </div>
                     </Col>
                     <Col lg={12} data-bs-theme="dark">
@@ -167,28 +167,6 @@ className="img-fluid"
                         </ul>
                     </Col>
                 </Row>
-            </Container>
-            <Container fluid className="bg-light py-5 bg-white">
-                <Container>
-                    <Row>
-                        <Col lg={8} className="mx-auto">
-                            <h2 className="display-5 text-center mb-4">Meet Jonathan - A Message to Our Community</h2>
-                            <p className="lead text-center mb-4">
-                                Watch my vision for the future of education in our district and learn why your support matters.
-                            </p>
-                            <div className="ratio ratio-16x9 mb-4 shadow rounded overflow-hidden">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/RbF4gqY7XlY" 
-                                    title="Jonathan Bejarano - Your Voice for Aspen Peaks School Board"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowFullScreen
-                                    className="rounded"
-                                ></iframe>
-                            </div>
-                            
-                        </Col>
-                    </Row>
-                </Container>
             </Container>
             <Container>
                 <Card bg="primary" text="white" className="my-4 shadow-sm" style={{ maxWidth: '500px', margin: '0 auto' }}>
