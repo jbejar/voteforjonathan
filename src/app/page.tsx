@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button, Card, CardBody, CardFooter, CardText, CardTitle, Col, Container, Row } from 'react-bootstrap';
 
 const HomePage: React.FC = () => {
@@ -122,8 +123,9 @@ const HomePage: React.FC = () => {
                                     />
                                 </div>
                                 <p>The process of splitting away from Alpine School District will involve
-                                    creating a realistic strategic plan. There will be many tough decisions, but my background gives me the skills
-                                    necessary to make decisions driven on data. Our goal should be to grow
+                                    creating a realistic strategic plan that bridges the old school district to the new school district smoothly for students and staff.
+                                    There will be many tough decisions, but my background gives me the skills
+                                    necessary to make <Link href="/schools" className="text-decoration-none fw-bold">decisions driven on data</Link>. Our goal should be to grow
                                     in efficiency through wise investments in our teachers, technology and our school buildings.
                                      I believe we should enter into shared service agreements with other districts. 
                                      I will ensure that negotiations are fair, that the school
@@ -144,7 +146,7 @@ className="img-fluid"
                                 <p>I want to ensure that the transition from Alpine to Aspen Peaks is as
                                     seamless as possible for our students. In order to reach that goal, it is
                                     important that we keep the teachers, administrators, and staff who are
-                                    serving our children on a daily basis.</p>
+                                    serving our children on a daily basis. We do this through <Link href="/info" className="text-decoration-none fw-bold">reducing class sizes</Link> and maintaining competitive salaries.</p>
                             </li>
                             <li className='mb-3'><h3 className="fw-bold">Select a highly qualified superintendent</h3>
                                 <div className="text-center image-container m-4">
@@ -160,7 +162,8 @@ className="img-fluid"
                                 <p>Choosing the new superintendent of the Aspen Peaks School District is
                                     probably the most important thing that the new school board will do. I
                                     intend to find an experienced superintendent who is a good listener and
-                                    who will align our new district with the goals and vision of its citizens.</p>
+                                    who will align our new district with the goals and vision of its citizens.
+                                    They should demonstrate expertise in policy, curriculum, and efficient administration. </p>
                             </li>
                         </ul>
                     </Col>

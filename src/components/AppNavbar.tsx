@@ -21,6 +21,7 @@ const AppNavbar: React.FC = () => {
               Volunteer
             </Nav.Link>
             <Nav.Link href="/info">Info</Nav.Link>
+            <Nav.Link href="/schools">Schools</Nav.Link>
             <Nav.Link 
               href="https://account.venmo.com/u/Jonathan-Bejarano-2" 
               target="_blank" 
@@ -29,7 +30,6 @@ const AppNavbar: React.FC = () => {
               Donate
             </Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
-            {/* <Nav.Link href="#about">About</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,0 +1,152 @@
+[
+  {
+    "School": "Belmont",
+    "School Type": "Elementary School",
+    "fall2024": 901,
+    "fall2025": 909,
+    "fall2026": 925,
+    "fall2027": 939,
+    "fall2028": 958,
+    "fall2029": 995
+  },
+  {
+    "School": "Traverse Mountain",
+    "School Type": "Elementary School",
+    "fall2024": 836,
+    "fall2025": 794,
+    "fall2026": 765,
+    "fall2027": 731,
+    "fall2028": 701,
+    "fall2029": 704
+  },
+  {
+    "School": "Fox Hollow",
+    "School Type": "Elementary School",
+    "fall2024": 711,
+    "fall2025": 680,
+    "fall2026": 669,
+    "fall2027": 639,
+    "fall2028": 616,
+    "fall2029": 586
+  },
+  {
+    "School": "Eaglerecrest",
+    "School Type": "Elementary School",
+    "fall2024": 701,
+    "fall2025": 659,
+    "fall2026": 631,
+    "fall2027": 606,
+    "fall2028": 592,
+    "fall2029": 577
+  },
+  {
+    "School": "Freedom",
+    "School Type": "Elementary School",
+    "fall2024": 623,
+    "fall2025": 568,
+    "fall2026": 552,
+    "fall2027": 516,
+    "fall2028": 500,
+    "fall2029": 494
+  },
+  {
+    "School": "Ridgeline",
+    "School Type": "Elementary School",
+    "fall2024": 702,
+    "fall2025": 672,
+    "fall2026": 641,
+    "fall2027": 578,
+    "fall2028": 549,
+    "fall2029": 524
+  },
+  {
+    "School": "Highland",
+    "School Type": "Elementary School",
+    "fall2024": 584,
+    "fall2025": 537,
+    "fall2026": 515,
+    "fall2027": 493,
+    "fall2028": 469,
+    "fall2029": 466
+  },
+  {
+    "School": "Alpine",
+    "School Type": "Elementary School",
+    "fall2024": 535,
+    "fall2025": 502,
+    "fall2026": 470,
+    "fall2027": 445,
+    "fall2028": 427,
+    "fall2029": 391
+  },
+  {
+    "School": "Westfield",
+    "School Type": "Elementary School",
+    "fall2024": 547,
+    "fall2025": 502,
+    "fall2026": 496,
+    "fall2027": 481,
+    "fall2028": 461,
+    "fall2029": 444
+  },
+  {
+    "School": "Mountain Ridge",
+    "School Type": "Jr. High School",
+    "fall2024": 960,
+    "fall2025": 969,
+    "fall2026": 888,
+    "fall2027": 873,
+    "fall2028": 784,
+    "fall2029": 751
+  },
+  {
+    "School": "American Fork Junior High School",
+    "School Type": "Jr. High School",
+    "fall2024": 1839,
+    "fall2025": 1837,
+    "fall2026": 1840,
+    "fall2027": 1804,
+    "fall2028": 1811,
+    "fall2029": 1783
+  },
+  {
+    "School": "American Fork",
+    "School Type": "High School",
+    "fall2024": 2320,
+    "fall2025": 2199,
+    "fall2026": 2147,
+    "fall2027": 2090,
+    "fall2028": 2092,
+    "fall2029": 2072
+  },
+  {
+    "School": "Lehi",
+    "School Type": "High School",
+    "fall2024": 2241,
+    "fall2025": 2317,
+    "fall2026": 2335,
+    "fall2027": 2335,
+    "fall2028": 2368,
+    "fall2029": 2379
+  },
+  {
+    "School": "Lone Peak",
+    "School Type": "High School",
+    "fall2024": 2471,
+    "fall2025": 2344,
+    "fall2026": 2291,
+    "fall2027": 2218,
+    "fall2028": 2186,
+    "fall2029": 2065
+  },
+  {
+    "School": "Skyridge",
+    "School Type": "High School",
+    "fall2024": 2487,
+    "fall2025": 2511,
+    "fall2026": 2478,
+    "fall2027": 2503,
+    "fall2028": 2485,
+    "fall2029": 2527
+  }
+]
