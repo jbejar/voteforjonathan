@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -13,7 +13,7 @@ import { SchoolProjection, ProjectionDataPoint, SchoolType, ClassSizeData, Class
 import projectionsData from './projections.json'
 import classSizesData from './classSizes.json'
 
-export default function SchoolProjectionsPage() {
+function SchoolProjectionsContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const chartRef = useRef<HTMLDivElement>(null)
@@ -551,4 +551,30 @@ export default function SchoolProjectionsPage() {
       return a["Class Name"].localeCompare(b["Class Name"])
     }
   }
+}
+
+// Loading component for Suspense fallback
+function LoadingFallback() {
+  return (
+    <Container className="py-5">
+      <Row>
+        <Col>
+          <div className="text-center">
+            <div className="spinner-border text-primary" aria-label="Loading">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p className="mt-3">Loading school projections...</p>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  )
+}
+
+export default function SchoolProjectionsPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <SchoolProjectionsContent />
+    </Suspense>
+  )
 }
