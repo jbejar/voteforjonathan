@@ -161,6 +161,13 @@ function SchoolProjectionsContent() {
   // Get class size data for selected school
   const originalClassData = classSizes
     .filter(classData => classData.School === selectedSchool)
+    .filter(classData => 
+      !classData["Class Name"].toLowerCase().includes('seminary') && 
+      !classData["Class Name"].toLowerCase().includes('aide') &&
+      !classData["Class Name"].toLowerCase().includes('advisory') &&
+      !classData["Class Name"].toLowerCase().includes('released') &&
+      !classData["Class Name"].toLowerCase().endsWith('ol')
+    )
     .sort(sortSchools())
   
   // Use modified data if FTE has been added, otherwise use original data
@@ -406,35 +413,7 @@ function SchoolProjectionsContent() {
                 <h3 className="mb-0">Class Sizes for {selectedSchool} in 2024</h3>
               </Card.Header>
               <Card.Body>
-                <Table striped bordered hover responsive>
-                  <thead>
-                    <tr>
-                      <th>Class Name</th>
-                      <th className="text-center">Class Size</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {(() => {
-                      const maxClassSize = Math.max(...selectedSchoolClasses.map(c => c["Class Size"]))
-                      let maxSizeFound = false
-                      return selectedSchoolClasses.map((classData, index) => {
-                        const isMaxSize = classData["Class Size"] === maxClassSize && !maxSizeFound
-                        const isAdditionalSection = classData["Class Name"].includes("(Section")
-                        if (isMaxSize) {
-                          maxSizeFound = true
-                        }
-                        return (
-                            <tr key={`${classData.School}-${classData["Class Name"]}-${index}`} className={`${isAdditionalSection ? "text-decoration-underline" : ""}`}>
-                            <td className={isMaxSize ? "fw-bold" : ""}>{classData["Class Name"]}</td>
-                            <td className={`text-center ${isMaxSize ? "fw-bold" : ""}`}>{classData["Class Size"]}</td>
-                          </tr>
-                        )
-                      })
-                    })()}
-                  </tbody>
-                </Table>
-                
-                {(() => {
+                 {(() => {
                   const stats = calculateStats(selectedSchoolClasses)
                   return (
                     <div className="mt-4 p-3 bg-light rounded">
@@ -467,7 +446,7 @@ function SchoolProjectionsContent() {
                         <Row className="mt-2">
                           <Col>
                             <div className="alert alert-info mb-0">
-                              <strong>Note:</strong> {fteCount} additional FTE{fteCount > 1 ? 's have' : ' has'} been added and students redistributed from the largest class{fteCount > 1 ? 'es' : ''}.
+                              <strong>Note:</strong> {fteCount} additional  {selectedSchoolType.includes("High") ?  "period" : "FTE" }{fteCount > 1 ? 's have' : ' has'} been added and students redistributed from the largest class{fteCount > 1 ? 'es' : ''}.
                             </div>
                           </Col>
                         </Row>
@@ -476,13 +455,13 @@ function SchoolProjectionsContent() {
                   )
                 })()}
                 
-                <div className="mt-3 d-flex justify-content-center gap-2">
+                <div className="my-3 d-flex justify-content-center gap-2">
                   <Button 
                     variant="primary" 
                     onClick={handleAddFTE}
                     disabled={selectedSchoolClasses.length === 0}
                   >
-                    Add 1 FTE / Teacher {fteCount > 0 && `(${fteCount} added)`}
+                    Add 1 {selectedSchoolType.includes("High") ?  "Period" : "FTE / Teacher" } {fteCount > 0 && `(${fteCount} added)`}
                   </Button>
                   {fteCount > 0 && (
                     <Button 
@@ -493,6 +472,35 @@ function SchoolProjectionsContent() {
                     </Button>
                   )}
                 </div>
+                <Table striped bordered hover responsive>
+                  <thead>
+                    <tr>
+                      <th>Class Name</th>
+                      <th className="text-center">Class Size</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(() => {
+                      const maxClassSize = Math.max(...selectedSchoolClasses.map(c => c["Class Size"]))
+                      let maxSizeFound = false
+                      return selectedSchoolClasses.map((classData, index) => {
+                        const isMaxSize = classData["Class Size"] === maxClassSize && !maxSizeFound
+                        const isAdditionalSection = classData["Class Name"].includes("(Section")
+                        if (isMaxSize) {
+                          maxSizeFound = true
+                        }
+                        return (
+                            <tr key={`${classData.School}-${classData["Class Name"]}-${index}`} className={`${isAdditionalSection ? "text-decoration-underline" : ""}`}>
+                            <td className={isMaxSize ? "fw-bold" : ""}>{classData["Class Name"]}</td>
+                            <td className={`text-center ${isMaxSize ? "fw-bold" : ""}`}>{classData["Class Size"]}</td>
+                          </tr>
+                        )
+                      })
+                    })()}
+                  </tbody>
+                </Table>
+                
+               
               </Card.Body>
             </Card>
           </Col>
@@ -541,6 +549,11 @@ function SchoolProjectionsContent() {
   function sortSchools(): (a: ClassSizeData, b: ClassSizeData) => number {
     return (a, b) => {
       // Special handling for Kindergarten to come before 1st grade
+      if(a == null || b == null) return 0;
+      if(a['Class Name'] == null || b['Class Name'] == null) {
+        debugger
+        return 0;
+      }
       if (a["Class Name"].includes("Kindergarten")) {
         return -1
       }
