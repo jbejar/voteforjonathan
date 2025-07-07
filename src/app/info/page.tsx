@@ -298,7 +298,7 @@ export default function ClassSizeInfoPage() {
             <Card.Body>
               <h4 className="text-danger mb-3">The Challenge</h4>
               <p>
-                As shown in the chart above, Aspen Peaks School District consistently has 
+                As shown in the chart above, Alpine School District consistently has 
                 larger class sizes than the state median across nearly every grade level and subject area. 
                 This means our students are not receiving the same level of individual attention 
                 as their peers in other districts.
