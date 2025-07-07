@@ -434,10 +434,10 @@ function SchoolProjectionsContent() {
                 <Image
                     src={getSchoolLogoPath(selectedSchoolData.School)}
                     alt={`${selectedSchoolData.School} logo`}
-                    width={400}
+                    width={Math.min(window.innerWidth * .5, 400)}
                     height={400}
                     className="ml-4 me-3"
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'contain', maxWidth: '400px', height: 'auto' }}
                     onError={(e) => {
                       // Hide the image if it fails to load
                       const target = e.target as HTMLImageElement;
