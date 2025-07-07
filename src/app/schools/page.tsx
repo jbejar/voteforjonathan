@@ -180,7 +180,7 @@ function SchoolProjectionsContent() {
     : projections.filter(school => school["School Type"] === selectedSchoolType)
 
   // Get school names for dropdown
-  const schoolNames = filteredSchools.map(school => school.School)
+  const schoolNames = filteredSchools.map(school => school.School).sort()
 
   // Find selected school data
   const selectedSchoolData = projections.find(school => school.School === selectedSchool)
