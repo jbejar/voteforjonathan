@@ -12,6 +12,33 @@ import * as d3 from 'd3'
 import { SchoolProjection, ProjectionDataPoint, SchoolType, ClassSizeData, ClassSizeStats } from '../../types'
 import projectionsData from './projections.json'
 import classSizesData from './classSizes.json'
+import Image from 'next/image'
+
+// Helper function to get school logo path
+const getSchoolLogoPath = (schoolName: string): string => {
+  // Special cases for specific schools
+  if (schoolName === 'American Fork' || schoolName === 'American Fork High School') {
+    return '/images/schools/american-fork-high.png'
+  }
+  
+  if (schoolName === 'American Fork Junior High School') {
+    return '/images/schools/american-fork.png'
+  }
+  
+  // Default conversion for other schools
+  const logoName = schoolName
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace('jr.-high-school', '')
+    .replace('junior-high-school', '')
+    .replace('high-school', '-high')
+    .replace('elementary-school', '')
+    .trim()
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+  
+  return `/images/schools/${logoName}.png`
+}
 
 function SchoolProjectionsContent() {
   const router = useRouter()
@@ -388,17 +415,40 @@ function SchoolProjectionsContent() {
           <Col>
             <Card className="shadow-sm">
               <Card.Header className="bg-primary text-white">
-                <h3 className="mb-0">
-                  {selectedSchoolData.School} 
-                  {selectedSchoolData["School Type"] && (
-                    <span className="ms-2">
-                      <small>({selectedSchoolData["School Type"]})</small>
-                    </span>
-                  )}
-                </h3>
+                <div className="d-flex align-items-center">
+                  
+                  <h3 className="mb-0">
+                    
+                    {selectedSchoolData.School} 
+                    {selectedSchoolData["School Type"] && (
+                      <span className="ms-2">
+                        <small>({selectedSchoolData["School Type"]})</small>
+                      </span>
+                    )}
+                  </h3>
+                </div>
               </Card.Header>
               <Card.Body className="text-center">
+                <Row>
+                <Col>
+                <Image
+                    src={getSchoolLogoPath(selectedSchoolData.School)}
+                    alt={`${selectedSchoolData.School} logo`}
+                    width={400}
+                    height={400}
+                    className="ml-4 me-3"
+                    style={{ objectFit: 'contain' }}
+                    onError={(e) => {
+                      // Hide the image if it fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                  </Col>
+                  <Col>
                 <div ref={chartRef} className="d-flex justify-content-center"></div>
+                </Col>
+                </Row>
               </Card.Body>
             </Card>
           </Col>
