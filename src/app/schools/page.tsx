@@ -390,7 +390,7 @@ function SchoolProjectionsContent() {
       .delay((d, i) => 2500 + i * 100)
       .style("opacity", 1)
 
-  }, [selectedSchoolData])
+  }, [selectedSchoolData, windowWidth])
 
   const handleSchoolTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSchoolType(e.target.value as SchoolType)
@@ -564,7 +564,7 @@ function SchoolProjectionsContent() {
                     <tr>
                       <th>Class Name</th>
                       <th className="text-center">Class Size</th>
-                      <th className="text-center">Actions</th>
+                      <th className="text-center"><span className="d-none d-sm-inline">Actions</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -588,7 +588,8 @@ function SchoolProjectionsContent() {
                                 onClick={() => addSectionForClass(classData["Class Name"])}
                                 title={`Add section for ${classData["Class Name"]}`}
                               >
-                                + Section
+                                <span className="d-none d-sm-inline">+ Section</span>
+                                <span className="d-inline d-sm-none">+</span>
                               </Button>
                             </td>
                           </tr>
