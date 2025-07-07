@@ -245,7 +245,7 @@ function SchoolProjectionsContent() {
     // Chart dimensions
     const margin = { top: 40, right: 40, bottom: 60, left: 80 }
     const width = Math.min(800, window.innerWidth - 100) - margin.left - margin.right
-    const height = 400 - margin.top - margin.bottom
+    const height = 500 - margin.top - margin.bottom
 
     // Create SVG
     const svg = d3.select(chartRef.current)
@@ -430,21 +430,21 @@ function SchoolProjectionsContent() {
               </Card.Header>
               <Card.Body className="text-center">
                 <Row>
-                <Col>
-                <Image
-                    src={getSchoolLogoPath(selectedSchoolData.School)}
-                    alt={`${selectedSchoolData.School} logo`}
-                    width={Math.min(window.innerWidth * .5, 400)}
-                    height={400}
-                    className="ml-4 me-3"
-                    style={{ objectFit: 'contain', maxWidth: '400px', height: 'auto' }}
-                    onError={(e) => {
-                      // Hide the image if it fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
+                <Col className="d-flex align-items-center justify-content-center">
+                  <Image
+                  src={getSchoolLogoPath(selectedSchoolData.School)}
+                  alt={`${selectedSchoolData.School} logo`}
+                  width={Math.min(window.innerWidth * .5, 400)}
+                  height={400}
+                  className="mx-auto"
+                  style={{ objectFit: 'contain', maxWidth: '400px', height: 'auto' }}
+                  onError={(e) => {
+                    // Hide the image if it fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                   />
-                  </Col>
+                </Col>
                   <Col>
                 <div ref={chartRef} className="d-flex justify-content-center"></div>
                 </Col>
