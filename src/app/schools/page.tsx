@@ -56,6 +56,7 @@ function SchoolProjectionsContent() {
   // State for modified class data when FTE is added
   const [modifiedClassData, setModifiedClassData] = useState<ClassSizeData[]>([])
   const [fteCount, setFteCount] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(800) // Default width for SSR
 
   // Cast the imported data to the proper type
   const projections = projectionsData as SchoolProjection[]
@@ -97,12 +98,21 @@ function SchoolProjectionsContent() {
     
     if (!maxClass) return
 
-    // Find all classes with the same name as the max class (excluding sections added by FTE)
-    const baseClassName = maxClass["Class Name"].replace(/ \(Section \d+\)$/, '')
+    addSectionForClass(maxClass["Class Name"])
+  }
+
+  // Function to add a section for a specific class
+  const addSectionForClass = (className: string) => {
+    const currentClassData = fteCount > 0 ? modifiedClassData : originalClassData
+    
+    // Find the base class name (without section numbers)
+    const baseClassName = className.replace(/ \(Section \d+\)$/, '')
     const sameNameClasses = currentClassData.filter(c => 
       c["Class Name"] === baseClassName || c["Class Name"].startsWith(`${baseClassName} (Section`)
     )
     
+    if (sameNameClasses.length === 0) return
+
     // Calculate total students across all sections of this class
     const totalStudents = sameNameClasses.reduce((sum, classData) => sum + classData["Class Size"], 0)
     
@@ -146,7 +156,7 @@ function SchoolProjectionsContent() {
 
     // Add the new section of the same class
     const newSection: ClassSizeData = {
-      School: maxClass.School,
+      School: sameNameClasses[0].School,
       "Class Name": `${baseClassName} (Section ${nextSectionNumber})`,
       "Class Size": studentsPerSection + (sameNameClasses.length < remainderStudents ? 1 : 0)
     }
@@ -160,6 +170,20 @@ function SchoolProjectionsContent() {
     setModifiedClassData([])
     setFteCount(0)
   }, [selectedSchool])
+
+  // Set window width after component mounts
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth)
+      
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth)
+      }
+      
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   // Function to reset to original data
   const handleReset = () => {
@@ -225,6 +249,7 @@ function SchoolProjectionsContent() {
     }
   }, [selectedSchoolType, schoolNames, selectedSchool])
 
+
   // Create line chart with D3
   useEffect(() => {
     if (!chartRef.current || !selectedSchoolData) return
@@ -244,7 +269,7 @@ function SchoolProjectionsContent() {
 
     // Chart dimensions
     const margin = { top: 40, right: 40, bottom: 60, left: 80 }
-    const width = Math.min(800, window.innerWidth - 100) - margin.left - margin.right
+    const width = Math.min(800, windowWidth - 100) - margin.left - margin.right
     const height = 500 - margin.top - margin.bottom
 
     // Create SVG
@@ -373,6 +398,12 @@ function SchoolProjectionsContent() {
 
   const handleSchoolChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSchool(e.target.value)
+    if (e.target.value && selectedSchoolType === 'All') {
+      const schoolData = projections.find(school => school.School === e.target.value)
+      if (schoolData && schoolData["School Type"]) {
+        setSelectedSchoolType(schoolData["School Type"] as SchoolType)
+      }
+    }
   }
 
   return (
@@ -434,7 +465,7 @@ function SchoolProjectionsContent() {
                   <Image
                   src={getSchoolLogoPath(selectedSchoolData.School)}
                   alt={`${selectedSchoolData.School} logo`}
-                  width={Math.min(window.innerWidth * .5, 400)}
+                  width={Math.min(windowWidth * 0.5, 400)}
                   height={400}
                   className="mx-auto"
                   style={{ objectFit: 'contain', maxWidth: '400px', height: 'auto' }}
@@ -483,7 +514,7 @@ function SchoolProjectionsContent() {
                         </Col>
                       </Row>
                       <Row className="mt-2">
-                        <Col>
+                        <Col sm={6} className="mb-2">
                           <strong>Total Classes:</strong> {stats.total}
                           {fteCount > 0 && (
                             <span className="text-success ms-2">
@@ -491,15 +522,21 @@ function SchoolProjectionsContent() {
                             </span>
                           )}
                         </Col>
+                        <Col sm={6} className="mb-2">
+                          <strong>Largest Class:</strong> {(() => {
+                            const largestClass = selectedSchoolClasses.find(c => c["Class Size"] === stats.max)
+                            return largestClass ? largestClass["Class Name"] : "N/A"
+                          })()}
+                        </Col>
                       </Row>
                       {fteCount > 0 && (
                         <Row className="mt-2">
                           <Col>
                             <div className="alert alert-info mb-0">
-                              <strong>Note:</strong> {fteCount} additional  {selectedSchoolType.includes("High") ?  "period" : "FTE" }{fteCount > 1 ? 's have' : ' has'} been added and students redistributed from the largest class{fteCount > 1 ? 'es' : ''}.
+                              <strong>Note:</strong> {fteCount} additional  {selectedSchoolType.includes("High") ?  "period" : "FTE" }{fteCount > 1 ? 's have' : ' has'} been added and students redistributed.
                             </div>
                           </Col>
-                        </Row>
+                      </Row>
                       )}
                     </div>
                   )
@@ -527,6 +564,7 @@ function SchoolProjectionsContent() {
                     <tr>
                       <th>Class Name</th>
                       <th className="text-center">Class Size</th>
+                      <th className="text-center">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -543,6 +581,16 @@ function SchoolProjectionsContent() {
                             <tr key={`${classData.School}-${classData["Class Name"]}-${index}`} className={`${isAdditionalSection ? "text-decoration-underline" : ""}`}>
                             <td className={isMaxSize ? "fw-bold" : ""}>{classData["Class Name"]}</td>
                             <td className={`text-center ${isMaxSize ? "fw-bold" : ""}`}>{classData["Class Size"]}</td>
+                            <td className="text-center">
+                              <Button 
+                                variant={isMaxSize ? "primary" : "outline-primary" }
+                                size="sm"
+                                onClick={() => addSectionForClass(classData["Class Name"])}
+                                title={`Add section for ${classData["Class Name"]}`}
+                              >
+                                + Section
+                              </Button>
+                            </td>
                           </tr>
                         )
                       })

@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -337,10 +338,57 @@ export default function ClassSizeInfoPage() {
                 Together, we can work toward smaller class sizes that enable our teachers 
                 to provide the personalized education every child deserves.
               </p>
+                <i className="bi bi-person-raised-hand me-2 fs-2" aria-hidden="true"></i>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+
+      <Row className="my-5">
+        <Col lg={10} className="mx-auto">
+          <Card className="shadow-sm border-warning">
+            <Card.Header className="bg-warning text-dark">
+              <h3 className="mb-0">The AI Era: Why Human Connection Matters More Than Ever</h3>
+            </Card.Header>
+            <Card.Body>
+              <p>
+                As artificial intelligence revolutionizes how we work and learn, the skills that 
+                make us uniquely human become increasingly valuable. Smaller class sizes at{' '}
+                <Link href="/schools" className="text-decoration-none fw-bold">schools</Link> are 
+                essential for developing these critical abilities:
+              </p>
+              <Row>
+                <Col md={6}>
+                  <h5 className="text-warning mb-3">Collaborative Skills</h5>
+                  <ul>
+                    <li><strong>Group Problem Solving:</strong> Working together on complex challenges that require human creativity</li>
+                    <li><strong>Communication:</strong> Developing clear, empathetic communication skills</li>
+                    <li><strong>Leadership:</strong> Learning to guide and inspire others in team settings</li>
+                  </ul>
+                </Col>
+                <Col md={6}>
+                  <h5 className="text-warning mb-3">Critical Thinking</h5>
+                  <ul>
+                    <li><strong>Independent Analysis:</strong> Developing original thoughts rather than relying on AI-generated content</li>
+                    <li><strong>Ethical Reasoning:</strong> Understanding when and how to appropriately use AI tools</li>
+                    <li><strong>Creative Problem Solving:</strong> Approaching challenges with human insight and innovation</li>
+                  </ul>
+                </Col>
+              </Row>
+              <div className="mt-4 p-3 bg-light rounded">
+                <p className="mb-2">
+                  <strong>Individual Attention Reduces AI Dependency:</strong> When teachers can provide 
+                  personalized feedback and guidance, students are less likely to simply submit 
+                  AI-generated work. Instead, they learn to use AI as a tool while developing 
+                  their own authentic voice and critical thinking skills.
+                </p>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+     
     </Container>
   )
 }
