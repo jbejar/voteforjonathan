@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
                     <Col lg={8} className="mx-auto">
                     <div className="ratio ratio-16x9 mb-4 shadow rounded overflow-hidden">
                             <iframe 
-                                src="https://www.youtube.com/embed/RbF4gqY7XlY" 
+                                src="https://www.youtube.com/embed/RbF4gqY7XlY?autoplay=1&mute=1&cc_load_policy=1" 
                                 title="Jonathan Bejarano - Your Voice for Aspen Peaks School Board"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowFullScreen
