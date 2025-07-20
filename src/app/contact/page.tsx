@@ -50,7 +50,7 @@ export default function ContactPage() {
             <i className="bi bi-instagram"></i>
             <span className="ms-2">Instagram</span>
           </a>
-          <a href="https://www.facebook.com/jbejaran" className="text-decoration-none me-3">
+          <a href="https://www.facebook.com/profile.php?id=61576952708366" className="text-decoration-none me-3">
             <i className="bi bi-facebook"></i>
             <span className="ms-2">Facebook</span>
           </a>

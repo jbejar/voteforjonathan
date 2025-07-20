@@ -8,37 +8,6 @@ export default function EventCalendarPage() {
     <Container className="py-5">
       <h1 className="text-center mb-5">Upcoming Events</h1>
       
-      
-
-      
-
-
-      {/* Event - Meet the Candidates Open House */}
-      <Row className="border-bottom py-4 mb-4 bg-white rounded">
-        <Col xs={2} className="text-end">
-          <h1 className="display-4">
-            <span className="badge bg-secondary">17</span>
-          </h1>
-          <h2>JUL</h2>
-        </Col>
-        <Col xs={10}>
-          <h3 className="text-uppercase fw-bold">Meet the Candidates Open House</h3>
-          <ul className="list-inline">
-            <li className="list-inline-item">
-              <i className="bi bi-calendar" aria-hidden="true"></i> Thursday
-            </li>
-            <li className="list-inline-item">
-              <i className="bi bi-clock" aria-hidden="true"></i> 6:00 PM - 8:00 PM
-            </li>
-            <li className="list-inline-item">
-              <i className="bi bi-geo-alt" aria-hidden="true"></i> Highland City Hall
-            </li>
-          </ul>
-          <p>
-            Join us for an informal open house to meet the candidates who are running for Highland City elected positions. Voters will have the opportunity to speak individually with each candidate and learn about important issues in Highland City.
-          </p>
-        </Col>
-      </Row>
 
       {/* Event - Meet the School Board Candidates */}
       <Row className="border-bottom py-4 mb-4 rounded">
@@ -94,9 +63,35 @@ export default function EventCalendarPage() {
 
 
       {/* Past Events Section */}
+      
       <div className="mt-5 pt-4 border-top">
         <h2 className="text-center mb-4 text-muted">Past Events</h2>
-        
+      {/* Event - Meet the Candidates Open House */}
+      <Row className="py-4 mb-4 bg-light rounded opacity-75">
+        <Col xs={2} className="text-end">
+          <h1 className="display-4">
+            <span className="badge bg-light text-muted border">17</span>
+          </h1>
+          <h2 className="text-muted">JUL</h2>
+        </Col>
+        <Col xs={10}>
+          <h3 className="text-uppercase fw-bold text-muted">Meet the Candidates Open House</h3>
+          <ul className="list-inline">
+            <li className="list-inline-item text-muted">
+              <i className="bi bi-calendar" aria-hidden="true"></i> Thursday
+            </li>
+            <li className="list-inline-item text-muted">
+              <i className="bi bi-clock" aria-hidden="true"></i> 6:00 PM - 8:00 PM
+            </li>
+            <li className="list-inline-item text-muted">
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> Highland City Hall
+            </li>
+          </ul>
+          <p className="text-muted">
+            <strong>Event completed!</strong> Thank you to everyone who joined us for the informal open house to meet the candidates running for Highland City elected positions. It was a great opportunity for voters to speak individually with each candidate and learn about important issues in Highland City.
+          </p>
+        </Col>
+      </Row>  
         {/* Event 5 */}
         <Row className="py-4 mb-4 bg-light rounded opacity-75">
           <Col xs={2} className="text-end">
