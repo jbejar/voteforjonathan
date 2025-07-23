@@ -9,32 +9,7 @@ export default function EventCalendarPage() {
       <h1 className="text-center mb-5">Upcoming Events</h1>
       
 
-      {/* Event - Meet the School Board Candidates */}
-      <Row className="border-bottom py-4 mb-4 rounded">
-        <Col xs={2} className="text-end">
-          <h1 className="display-4">
-        <span className="badge bg-secondary">21</span>
-          </h1>
-          <h2>JUL</h2>
-        </Col>
-        <Col xs={10}>
-          <h3 className="text-uppercase fw-bold">Meet the School Board Candidates</h3>
-          <ul className="list-inline">
-        <li className="list-inline-item">
-          <i className="bi bi-calendar" aria-hidden="true"></i> Monday
-        </li>
-        <li className="list-inline-item">
-          <i className="bi bi-clock" aria-hidden="true"></i> 6:15 PM - 8:15 PM
-        </li>
-        <li className="list-inline-item">
-          <i className="bi bi-geo-alt" aria-hidden="true"></i> Lone Peak High School
-        </li>
-          </ul>
-          <p>
-        Join the Lone Peak Council PTA for an opportunity to ask questions one-on-one with school board candidates. Learn about their visions and plans for Aspen Peaks School District in this interactive format designed to help you make informed decisions.
-          </p>
-        </Col>
-      </Row>
+
 
       {/* Event 4 */}
       <Row className="border-bottom py-4 mb-4 bg-white rounded">
@@ -66,6 +41,41 @@ export default function EventCalendarPage() {
       
       <div className="mt-5 pt-4 border-top">
         <h2 className="text-center mb-4 text-muted">Past Events</h2>
+              {/* Event - Meet the School Board Candidates */}
+      <Row className="py-4 mb-4 bg-light rounded opacity-75">
+        <Col xs={2} className="text-end">
+          <h1 className="display-4">
+        <span className="badge bg-light text-muted border">21</span>
+          </h1>
+          <h2 className="text-muted">JUL</h2>
+        </Col>
+        <Col xs={10}>
+          <h3 className="text-uppercase fw-bold text-muted">Meet the School Board Candidates</h3>
+          <ul className="list-inline">
+        <li className="list-inline-item text-muted">
+          <i className="bi bi-calendar" aria-hidden="true"></i> Monday
+        </li>
+        <li className="list-inline-item text-muted">
+          <i className="bi bi-clock" aria-hidden="true"></i> 6:15 PM - 8:15 PM
+        </li>
+        <li className="list-inline-item text-muted">
+          <i className="bi bi-geo-alt" aria-hidden="true"></i> Lone Peak High School
+        </li>
+          </ul>
+          <p className="text-muted">
+        <strong>Event completed!</strong> Thank you to everyone who joined the Lone Peak Council PTA for the school board candidate event. It was a valuable opportunity to discuss my vision for Aspen Peaks School District and answer your questions.
+          </p>
+          <div className="ratio ratio-16x9 mb-3 shadow rounded overflow-hidden">
+        <iframe 
+          src="https://www.youtube.com/embed/s1tj2h-5lUQ?autoplay=1&mute=1&cc_load_policy=1" 
+          title="Meet the School Board Candidates Event"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowFullScreen
+          className="rounded"
+        ></iframe>
+          </div>
+        </Col>
+      </Row>
       {/* Event - Meet the Candidates Open House */}
       <Row className="py-4 mb-4 bg-light rounded opacity-75">
         <Col xs={2} className="text-end">
