@@ -288,12 +288,12 @@ function TaxesContent() {
                             <div className="alert alert-info">
                                 <h6><strong>Understanding Your 2025 Property Tax Increase</strong></h6>
                                 <p className="mb-2">
-                                    The box plot above shows the distribution of market value increases across all properties in District 3. 
+                                    The box plot above shows the distribution of market value increases across all properties in District 3.&nbsp;
                                     {selectedProperty ? 'Your' : 'Property tax increases are'} {selectedProperty ? 'property tax increase is' : ''} driven by <strong>two main factors</strong>:
                                 </p>
                                 <ol className="mb-2">
                                     <li><strong>Market Value {selectedProperty && selectedProperty.marketValue[2025] > selectedProperty.marketValue[2024] ? 'Increase' : selectedProperty && selectedProperty.marketValue[2025] < selectedProperty.marketValue[2024] ? 'Decrease' : 'Change'}:</strong> {selectedProperty ? 
-                                        `Your property at ${selectedProperty.address} ${selectedProperty.marketValue[2025] > selectedProperty.marketValue[2024] ? 'increased' : selectedProperty.marketValue[2025] < selectedProperty.marketValue[2024] ? 'decreased' : 'remained the same'} from ${formatCurrency(selectedProperty.marketValue[2024])} to ${formatCurrency(selectedProperty.marketValue[2025])} (${selectedProperty.marketValue[2025] >= selectedProperty.marketValue[2024] ? '+' : ''}${formatCurrency(selectedProperty.marketValue[2025] - selectedProperty.marketValue[2024])})` :
+                                        `Your property at ${selectedProperty.address.split("-")[0]} ${selectedProperty.marketValue[2025] > selectedProperty.marketValue[2024] ? 'increased' : selectedProperty.marketValue[2025] < selectedProperty.marketValue[2024] ? 'decreased' : 'remained the same'} from ${formatCurrency(selectedProperty.marketValue[2024])} to ${formatCurrency(selectedProperty.marketValue[2025])} (${selectedProperty.marketValue[2025] >= selectedProperty.marketValue[2024] ? '+' : ''}${formatCurrency(selectedProperty.marketValue[2025] - selectedProperty.marketValue[2024])})` :
                                         'Utah County assessed properties at different values'}</li>
                                     <li><strong>Tax Rate Change:</strong> The Alpine School District rate changed from {asdRates[2024].toFixed(6)} to {asdRates[2025].toFixed(6)} 
                                 &nbsp;(a {(((asdRates[2025] - asdRates[2024]) / asdRates[2024]) * 100).toFixed(1)}% {asdRates[2025] > asdRates[2024] ? 'increase' : 'decrease'})</li>
