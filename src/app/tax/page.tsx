@@ -1,0 +1,365 @@
+'use client'
+import { useEffect, useRef, useState, Suspense } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
+import Table from 'react-bootstrap/Table'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Fuse from 'fuse.js'
+import { TaxProperty } from '../../types'
+import taxData from './district3.json'
+import asdRates from './rates.json'
+
+// Type the imported data
+const typedTaxData: TaxProperty[] = taxData as TaxProperty[]
+
+interface AddressSearchProps {
+    onAddressSelect: (property: TaxProperty) => void
+}
+
+function AddressSearch({ onAddressSelect }: AddressSearchProps) {
+    const [searchTerm, setSearchTerm] = useState('')
+    const [searchResults, setSearchResults] = useState<TaxProperty[]>([])
+    const [showResults, setShowResults] = useState(false)
+    const [selectedIndex, setSelectedIndex] = useState(-1)
+    const searchRef = useRef<HTMLDivElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    // Configure Fuse.js for fuzzy searching
+    const fuse = useRef(
+        new Fuse(typedTaxData, {
+            keys: ['address'],
+            threshold: 0.3, // Lower threshold = more strict matching
+            minMatchCharLength: 2,
+            includeScore: true,
+            findAllMatches: false,
+        })
+    )
+
+    useEffect(() => {
+        if (searchTerm.length >= 2) {
+            const results = fuse.current.search(searchTerm)
+            setSearchResults(results.map(result => result.item).slice(0, 10)) // Limit to 10 results
+            setShowResults(true)
+            setSelectedIndex(-1) // Reset selection when results change
+        } else {
+            setSearchResults([])
+            setShowResults(false)
+            setSelectedIndex(-1)
+        }
+    }, [searchTerm])
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+                setShowResults(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
+
+    const handleAddressSelect = (property: TaxProperty) => {
+        setSearchTerm(property.address)
+        onAddressSelect(property)
+        setShowResults(false)
+        setSelectedIndex(-1)
+    }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value)
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (!showResults || searchResults.length === 0) return
+
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault()
+                setSelectedIndex(prev => 
+                    prev < searchResults.length - 1 ? prev + 1 : 0
+                )
+                break
+            case 'ArrowUp':
+                e.preventDefault()
+                setSelectedIndex(prev => 
+                    prev > 0 ? prev - 1 : searchResults.length - 1
+                )
+                break
+            case 'Enter':
+                e.preventDefault()
+                if (selectedIndex >= 0 && selectedIndex < searchResults.length) {
+                    handleAddressSelect(searchResults[selectedIndex])
+                    // Force blur to hide dropdown
+                    inputRef.current?.blur()
+                }
+                break
+            case 'Escape':
+                setShowResults(false)
+                setSelectedIndex(-1)
+                break
+        }
+    }
+
+    const handleInputFocus = () => {
+        if (searchResults.length > 0) {
+            setShowResults(true)
+        }
+    }
+
+    const handleInputBlur = () => {
+        // Use setTimeout to allow click events on dropdown items to fire first
+        setTimeout(() => {
+            setShowResults(false)
+            setSelectedIndex(-1)
+        }, 150)
+    }
+
+    return (
+        <div ref={searchRef} style={{ position: 'relative' }}>
+            <Form.Group className="mb-3">
+                <Form.Label>Search Address</Form.Label>
+                <Form.Control
+                    ref={inputRef}
+                    type="text"
+                    placeholder="Start typing your address..."
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
+                    onKeyDown={handleKeyDown}
+                />
+            </Form.Group>
+            
+            {showResults && searchResults.length > 0 && (
+                <ListGroup 
+                    style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: 0,
+                        right: 0,
+                        zIndex: 1000,
+                        maxHeight: '300px',
+                        overflowY: 'auto',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        border: '1px solid #dee2e6',
+                        borderRadius: '0.375rem'
+                    }}
+                >
+                    {searchResults.map((property, index) => (
+                        <ListGroup.Item
+                            key={property.parcel}
+                            action
+                            onClick={() => handleAddressSelect(property)}
+                            style={{ 
+                                cursor: 'pointer',
+                                backgroundColor: index === selectedIndex ? '#e9ecef' : '#ffffff'
+                            }}
+                            className="d-flex justify-content-between align-items-center"
+                        >
+                            <span>{property.address}</span>
+                        </ListGroup.Item>
+                    ))}
+                </ListGroup>
+            )}
+        </div>
+    )
+}
+
+function TaxesContent() {
+    const [selectedProperty, setSelectedProperty] = useState<TaxProperty | null>(null)
+    const router = useRouter()
+    const searchParams = useSearchParams()
+
+    useEffect(() => {
+        const parcelId = searchParams.get('parcel')
+        if (parcelId) {
+            const property = typedTaxData.find(p => p.parcel.toString() === parcelId)
+            if (property) {
+                setSelectedProperty(property)
+            }
+        }
+    }, [searchParams])
+
+    const handleAddressSelect = (property: TaxProperty) => {
+        setSelectedProperty(property)
+        router.push(`/tax?parcel=${property.parcel}`, { scroll: false })
+    }
+
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }).format(value)
+    }
+
+    const getYearlyData = (property: TaxProperty) => {
+        const years = Object.keys(property.marketValue)
+            .filter(year => parseInt(year) >= 2003)
+            .sort((a, b) => parseInt(a) - parseInt(b))
+        return years.map(year => ({
+            year,
+            marketValue: property.marketValue[year],
+            taxableValue: property.marketValue[year] * 0.55, // Assuming 60% of market value is taxable
+            asdTaxRate: asdRates[year] || 0, // Get the tax rate for the year, default to 0 if not found
+            asdTax: (property.marketValue[year] * 0.55 * (asdRates[year] || 0)), // Calculate tax based on taxable value and rate
+        }))
+    }
+
+    return (
+        <Container className="mt-4">
+            <Row>
+                <Col>
+                    <h1>Your Property Tax Information</h1>
+                    <p className="lead">
+                        Search for your property to see historical market values and tax information.
+                    </p>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={6}>
+                    <Card>
+                        <Card.Header>
+                            <h5>Address Search</h5>
+                        </Card.Header>
+                        <Card.Body>
+                            <AddressSearch onAddressSelect={handleAddressSelect} />
+                            <p className="text-muted small mt-2">
+                                Start typing to search through {typedTaxData.length} properties in Highland and Portions of Lehi in District 3.
+                            </p>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                { !selectedProperty && <Col md={6}>
+                    <Card>
+                        <Card.Header>
+                            <h5>Tax Notice Information</h5>
+                        </Card.Header>
+                        <Card.Body>
+                            
+                        <p>
+                        <strong>Please note:</strong> The tax notices you receive may not provide a complete picture of your tax situation.
+                            They often don&apos;t clearly show how decreasing bond payments offset other increases, 
+                            which can make it appear that your tax burden is increasing more than it actually is.
+                        </p>
+                        
+                    
+                        </Card.Body>
+                    </Card>
+                </Col>}
+
+                {selectedProperty && (
+                    <Col md={6}>
+                        <Card>
+                            <Card.Header>
+                                <h5>Property Details</h5>
+                            </Card.Header>
+                            <Card.Body>
+                                <h6>{selectedProperty.address}</h6>
+                                <p><strong>Parcel Number:</strong> <a target="_blank" rel="noopener noreferrer" href={`https://www.utahcounty.gov/LandRecords/property.asp?av_serial=${selectedProperty.parcel}002`}>{selectedProperty.parcel}</a></p>
+                                <p>
+                                    <strong>2025 Market Value Change:</strong>{' '}
+                                    {formatCurrency(selectedProperty.marketValue[2025] - selectedProperty.marketValue[2024])}
+                                </p>
+                                <p>
+                                    <strong>2025 ASD Tax Change:</strong>{' '}
+                                    {(() => {
+                                        const taxChange = selectedProperty.marketValue[2025] * 0.55 * asdRates[2025] - 
+                                                                            selectedProperty.marketValue[2024] * 0.55 * asdRates[2024];
+                                        return (
+                                            <span className={`fw-bold`} style={{fontSize: '1.1em'}}>
+                                                {taxChange >= 0 ? '+' : ''}{formatCurrency(taxChange)}
+                                            </span>
+                                        );
+                                    })()}
+                                </p>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                )}
+            </Row>
+
+            {selectedProperty && (
+                <Row className="mt-4">
+                    <Col>
+                        <Card>
+                            <Card.Header>
+                                <h5>Historical Tax Information</h5>
+                            </Card.Header>
+                            <Card.Body>
+                                <Table striped bordered hover responsive>
+                                    <thead>
+                                        <tr>
+                                            <th>Year</th>
+                                            <th>Market Value</th>
+                                            <th>ASD Tax Rate</th>
+                                            <th>Total Tax Paid</th>
+                                            <th>Year-over-Year Change</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {getYearlyData(selectedProperty)
+                                            .reverse()
+                                            .slice(0, 10)
+                                            .map((data, index, array) => {
+                                                const prevValue = array[index + 1]?.asdTax
+                                                const change = prevValue ? 
+                                                    ((data.asdTax - prevValue) / prevValue * 100) : null
+                                                
+                                                return (
+                                                    <tr key={data.year}>
+                                                        <td>{data.year}</td>
+                                                        <td>{formatCurrency(data.marketValue)}</td>
+                                                        <td>{(data.asdTaxRate).toFixed(6)}</td>
+                                                        <td>{formatCurrency((data.asdTax))}</td>
+                                                        <td>
+                                                            {change !== null ? (
+                                                                <span className={change >= 0 ? 'text-success' : 'text-danger'}>
+                                                                    {change >= 0 ? '+' : ''}{change.toFixed(1)}%
+                                                                </span>
+                                                            ) : (
+                                                                <span className="text-muted">-</span>
+                                                            )}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })}
+                                    </tbody>
+                                </Table>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            )}
+            <Row className="mt-4">
+            <p>
+                            This tool helps you see the full historical context of your property values and taxes,
+                            making it easier to understand the actual impact of tax changes over time.
+                        </p>
+            <p>
+                            You can view your official property tax notice online at <a href="https://enoticesonline.com/utu" target="_blank" rel="noopener noreferrer" className="text-primary">enoticesonline.com/utu</a>.
+                        </p>
+                        </Row>
+        </Container>
+    )
+}
+
+export default function TaxesPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <TaxesContent />
+        </Suspense>
+    )
+}
+
+

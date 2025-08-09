@@ -22,6 +22,9 @@ const Footer: React.FC = () => {
           {pathname !== '/info' && (
             <Nav.Link href="/info" className="text-light my-2">Info</Nav.Link>
           )}
+          {pathname !== '/tax' && (
+            <Nav.Link href="/tax" className="text-light my-2">Tax</Nav.Link>
+          )}
           {pathname !== '/schools' && (
             <Nav.Link href="/schools" className="text-light my-2">Schools</Nav.Link>
           )}

@@ -44,3 +44,11 @@ export interface ClassSizeStats {
     max: number;
     total: number;
 }
+
+// Tax data interfaces
+export interface TaxProperty {
+    address: string;
+    parcel: number;
+    asdTax: number;
+    marketValue: Record<string, number>;
+}

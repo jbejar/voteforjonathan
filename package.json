@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.5",
     "bootstrap-icons": "^1.11.3",
     "d3": "^7.9.0",
+    "fuse.js": "^7.1.0",
     "next": "latest",
     "react": "latest",
     "react-bootstrap": "^2.10.9",
