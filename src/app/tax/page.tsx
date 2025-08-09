@@ -219,9 +219,9 @@ function TaxesContent() {
         <Container className="mt-4">
             <Row>
                 <Col>
-                    <h1>Your Property Tax Information</h1>
+                    <h1>Alpine School District Property Taxes</h1>
                     <p className="lead">
-                        Search for your property to see historical market values and tax information.
+                        Search for your property to see historical market values and school tax information.
                     </p>
                 </Col>
             </Row>
@@ -240,26 +240,9 @@ function TaxesContent() {
                         </Card.Body>
                     </Card>
                 </Col>
-                { !selectedProperty && <Col md={6}>
-                    <Card>
-                        <Card.Header>
-                            <h5>Tax Notice Information</h5>
-                        </Card.Header>
-                        <Card.Body>
-                            
-                        <p>
-                        <strong>Please note:</strong> The tax notices you receive may not provide a complete picture of your tax situation.
-                            They often don&apos;t clearly show how decreasing bond payments offset other increases, 
-                            which can make it appear that your tax burden is increasing more than it actually is.
-                        </p>
-                        
-                    
-                        </Card.Body>
-                    </Card>
-                </Col>}
 
                 {selectedProperty && (
-                    <Col md={6}>
+                    <Col md={6} className="mt-3 mt-md-0">
                         <Card>
                             <Card.Header>
                                 <h5>Property Details</h5>
@@ -342,6 +325,10 @@ function TaxesContent() {
                 </Row>
             )}
             <Row className="mt-4">
+                <p> <strong>Please note:</strong> The tax notices you receive may not provide a complete picture of your Alpine School District tax situation.
+                            They don&apos;t clearly show how decreasing bond payments offset other increases, 
+                            which can make it appear that your tax burden is increasing more than it actually is.
+                 </p>
             <p>
                             This tool helps you see the full historical context of your property values and taxes,
                             making it easier to understand the actual impact of tax changes over time.
