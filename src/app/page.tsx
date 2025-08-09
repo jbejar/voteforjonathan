@@ -169,6 +169,58 @@ className="img-fluid"
                     </Col>
                 </Row>
             </Container>
+            
+            <Container fluid className="bg-light py-5">
+                <Container>
+                    <Row>
+                        <h1 className="display-4 text-center mb-5">Community Endorsements</h1>
+                        <Col>
+                            <Row className="g-4">
+                                <Col lg={4} md={6}>
+                                    <Card className="h-100 shadow-sm">
+                                        <CardBody className="d-flex flex-column">
+                                            <CardText className="flex-grow-1">
+                                                "Jonathan showed us the actual numbers proving that a split would increase our taxes. He is educated about everything related to education policy and has done the research to understand the real financial implications of the district split."
+                                            </CardText>
+                                            <footer className="blockquote-footer mt-3">
+                                                <strong>Tammy H. Hodson</strong><br />
+                                                <small className="text-muted">Highland, UT</small>
+                                            </footer>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col lg={4} md={6}>
+                                    <Card className="h-100 shadow-sm">
+                                        <CardBody className="d-flex flex-column">
+                                            <CardText className="flex-grow-1">
+                                                "He is so educated about everything education. He listens, and he comes up with brilliant ideas. He understands the need to be careful on taxes and is actively working hundreds of hours to figure out how to continue giving our students what they need without asking for more money."
+                                            </CardText>
+                                            <footer className="blockquote-footer mt-3">
+                                                <strong>Jaclyn Olson</strong><br />
+                                                <small className="text-muted">Highland, UT</small>
+                                            </footer>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                                <Col lg={4} md={6}>
+                                    <Card className="h-100 shadow-sm">
+                                        <CardBody className="d-flex flex-column">
+                                            <CardText className="flex-grow-1">
+                                                "Jonathan is very easy to work with, a clear communicator, and responds promptly. He listens far more than he talks and is very good at getting into the nitty-gritty details. Making decisions for a new school district requires people who dive deep and understand all the pros and cons."
+                                            </CardText>
+                                            <footer className="blockquote-footer mt-3">
+                                                <strong>Emmerin Schutz</strong><br />
+                                                <small className="text-muted">Highland, UT</small>
+                                            </footer>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+            </Container>
+
             <Container>
                 <Card bg="primary" text="white" className="my-4 shadow-sm" style={{ maxWidth: '500px', margin: '0 auto' }}>
                     <CardBody>
