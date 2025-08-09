@@ -329,7 +329,7 @@ function TaxesContent() {
                                             <th>Market Value</th>
                                             <th>ASD Tax Rate</th>
                                             <th>Total Tax Paid</th>
-                                            <th>Year-over-Year Change</th>
+                                            <th className="d-none d-md-table-cell">Year-over-Year Change</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -347,7 +347,7 @@ function TaxesContent() {
                                                         <td>{formatCurrency(data.marketValue)}</td>
                                                         <td>{(data.asdTaxRate).toFixed(6)}</td>
                                                         <td>{formatCurrency((data.asdTax))}</td>
-                                                        <td>
+                                                        <td className="d-none d-md-table-cell">
                                                             {change !== null ? (
                                                                 <span className={change >= 0 ? 'text-success' : 'text-danger'}>
                                                                     {change >= 0 ? '+' : ''}{change.toFixed(1)}%

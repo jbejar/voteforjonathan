@@ -25,7 +25,7 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
             const updateWidth = () => {
             if (containerRef.current) {
                 const containerWidth = containerRef.current.getBoundingClientRect().width
-                setWidth(Math.max(400, containerWidth )- 400 )
+                setWidth(Math.max(400, containerWidth) - 300)
             }
             }
             
