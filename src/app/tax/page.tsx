@@ -10,6 +10,7 @@ import Table from 'react-bootstrap/Table'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Fuse from 'fuse.js'
 import { TaxProperty } from '../../types'
+import { MarketValueBoxPlot } from '../../components'
 import taxData from './district3.json'
 import asdRates from './rates.json'
 
@@ -188,6 +189,8 @@ function TaxesContent() {
         }
     }, [searchParams])
 
+
+
     const handleAddressSelect = (property: TaxProperty) => {
         setSelectedProperty(property)
         router.push(`/tax?parcel=${property.parcel}`, { scroll: false })
@@ -270,6 +273,45 @@ function TaxesContent() {
                         </Card>
                     </Col>
                 )}
+            </Row>
+
+            <Row className="mt-4">
+                <Col>
+                    <Card>
+                        <Card.Header>
+                            <h5>Market Value Analysis: 2024 to 2025</h5>
+                        </Card.Header>
+                        <Card.Body>
+                            <div className="mb-3">
+                                <MarketValueBoxPlot data={typedTaxData} selectedProperty={selectedProperty} />
+                            </div>
+                            <div className="alert alert-info">
+                                <h6><strong>Understanding Your 2025 Property Tax Increase</strong></h6>
+                                <p className="mb-2">
+                                    The box plot above shows the distribution of market value increases across all properties in District 3. 
+                                    {selectedProperty ? 'Your' : 'Property tax increases are'} {selectedProperty ? 'property tax increase is' : ''} driven by <strong>two main factors</strong>:
+                                </p>
+                                <ol className="mb-2">
+                                    <li><strong>Market Value {selectedProperty && selectedProperty.marketValue[2025] > selectedProperty.marketValue[2024] ? 'Increase' : selectedProperty && selectedProperty.marketValue[2025] < selectedProperty.marketValue[2024] ? 'Decrease' : 'Change'}:</strong> {selectedProperty ? 
+                                        `Your property at ${selectedProperty.address} ${selectedProperty.marketValue[2025] > selectedProperty.marketValue[2024] ? 'increased' : selectedProperty.marketValue[2025] < selectedProperty.marketValue[2024] ? 'decreased' : 'remained the same'} from ${formatCurrency(selectedProperty.marketValue[2024])} to ${formatCurrency(selectedProperty.marketValue[2025])} (${selectedProperty.marketValue[2025] >= selectedProperty.marketValue[2024] ? '+' : ''}${formatCurrency(selectedProperty.marketValue[2025] - selectedProperty.marketValue[2024])})` :
+                                        'Utah County assessed properties at different values'}</li>
+                                    <li><strong>Tax Rate Change:</strong> The Alpine School District rate changed from {asdRates[2024].toFixed(6)} to {asdRates[2025].toFixed(6)} 
+                                &nbsp;(a {(((asdRates[2025] - asdRates[2024]) / asdRates[2024]) * 100).toFixed(1)}% {asdRates[2025] > asdRates[2024] ? 'increase' : 'decrease'})</li>
+                                </ol>
+                                <p className="mb-0">
+                                    <strong>Important:</strong> {selectedProperty ? 
+                                        selectedProperty.marketValue[2025] > selectedProperty.marketValue[2024] ? 
+                                            `Even if the tax rate had remained exactly the same, you would still see an increase in your school taxes due to the rise in your property's assessed value (${formatCurrency(selectedProperty.marketValue[2025] * 0.55 * asdRates[2024] - selectedProperty.marketValue[2024] * 0.55 * asdRates[2024])}). The rate change represents an additional component beyond the market value-driven increase (${formatCurrency(selectedProperty.marketValue[2025] * 0.55 * (asdRates[2025] - asdRates[2024]))}).` :
+                                        selectedProperty.marketValue[2025] < selectedProperty.marketValue[2024] ?
+                                            `If the tax rate had remained exactly the same, you would have seen a decrease in your school taxes due to the decline in your property's assessed value (${formatCurrency(selectedProperty.marketValue[2025] * 0.55 * asdRates[2024] - selectedProperty.marketValue[2024] * 0.55 * asdRates[2024])}). The rate change represents an additional component that ${asdRates[2025] > asdRates[2024] ? 'partially offsets this decrease' : 'further reduces your taxes'} (${formatCurrency(selectedProperty.marketValue[2025] * 0.55 * (asdRates[2025] - asdRates[2024]))}).` :
+                                            `Since your property's assessed value remained the same, any change in your school taxes is solely due to the tax rate change (${formatCurrency(selectedProperty.marketValue[2025] * 0.55 * (asdRates[2025] - asdRates[2024]))}).`
+                                        : 'Property tax changes are driven by both market value changes and tax rate adjustments. Even if tax rates remain the same, property owners may see changes in their taxes due to assessed value fluctuations.'
+                                    }
+                                </p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
             </Row>
 
             {selectedProperty && (
