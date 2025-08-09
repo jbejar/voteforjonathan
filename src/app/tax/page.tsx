@@ -288,7 +288,7 @@ function TaxesContent() {
                             <div className="alert alert-info">
                                 <h6><strong>Understanding Your 2025 Property Tax Increase</strong></h6>
                                 <p className="mb-2">
-                                    The box plot above shows the distribution of market value increases across all properties in District 3.&nbsp;
+                                    The <a href="https://en.wikipedia.org/wiki/Box_plot" target="_blank" rel="noopener noreferrer">box plot</a> above shows the distribution of market value increases across all properties in District 3.&nbsp;
                                     {selectedProperty ? 'Your' : 'Property tax increases are'} {selectedProperty ? 'property tax increase is' : ''} driven by <strong>two main factors</strong>:
                                 </p>
                                 <ol className="mb-2">

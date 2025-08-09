@@ -25,7 +25,7 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
             const updateWidth = () => {
             if (containerRef.current) {
                 const containerWidth = containerRef.current.getBoundingClientRect().width
-                setWidth(Math.max(400, containerWidth) - 200)
+                setWidth(Math.max(400, containerWidth )- 400 )
             }
             }
             
@@ -56,7 +56,7 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
         if (percentageIncreases.length === 0) return
 
         // Set dimensions and margins
-        const margin = { top: 50, right: 50, bottom: 50, left: 80 }
+        const margin = { top: 50, right: 150, bottom: 50, left: 150 }
         // Use container width for responsiveness
         
         const height = 225 - margin.top - margin.bottom
@@ -102,7 +102,9 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
         // Add X axis
         g.append("g")
             .attr("transform", `translate(0,${height})`)
-            .call(d3.axisBottom(xScale).ticks(8))
+            .call(d3.axisBottom(xScale)
+            .ticks(8)
+            .tickFormat(d => `${d}%`))
 
         // Add Y axis
         
@@ -112,7 +114,8 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
             .attr("text-anchor", "middle")
             .attr("x", width / 2)
             .attr("y", height + 40)
-            .style("font-size", "12px")
+            .style("font-size", "16px")
+            .style("font-family", "Open Sans, sans-serif")
             .text("Percentage Increase in Market Value (2024 to 2025)")
 
         // Main horizontal line (whiskers)
@@ -194,7 +197,8 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
                 .attr("x", xScale(selectedPropertyIncrease))
                 .attr("y", yScale("Market Value % Increase")! - 10)
                 .attr("text-anchor", "middle")
-                .style("font-size", "11px")
+                .style("font-size", "15px")
+                .style("font-family", "Open Sans, sans-serif")
                 .style("font-weight", "bold")
                 .style("fill", "#007bff")
                 .text(`Your Property: ${selectedPropertyIncrease.toFixed(1)}%`)

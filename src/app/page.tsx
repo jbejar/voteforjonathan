@@ -124,11 +124,11 @@ const HomePage: React.FC = () => {
                                 </div>
                                 <p>The process of splitting away from Alpine School District will involve
                                     creating a realistic strategic plan that bridges the old school district to the new school district smoothly for students and staff.
-                                    There will be many tough decisions, but my background gives me the skills
+                                    There will be many tough decisions, such as <Link href="/tax" className="text-decoration-none fw-bold">property tax</Link>, but my background gives me the skills
                                     necessary to make <Link href="/schools" className="text-decoration-none fw-bold">decisions driven on data</Link>. Our goal should be to grow
                                     in efficiency through wise investments in our teachers, technology and our school buildings.
-                                     I believe we should enter into shared service agreements with other districts. 
-                                     I will ensure that negotiations are fair, that the school
+                                    I believe we should enter into shared service agreements with other districts. 
+                                    I will ensure that negotiations are fair, that the school
                                     districts remain on good terms, and that our students continue to have access to programs they had under the old district.</p>
                             </li>
                             <li className='mb-3'><h3 className="fw-bold">Retain our highly qualified teachers and staff</h3>
