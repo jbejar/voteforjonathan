@@ -218,6 +218,27 @@ className="img-fluid"
                             </Row>
                         </Col>
                     </Row>
+                    <Row className="mt-5">
+                        <Col className="text-center">
+                            <h3 className="mb-4">Recommended by</h3>
+                            <a 
+                                href="https://www.alpineuniserv.org/political-action.html" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="d-inline-block position-relative"
+                            >
+                                <div className="position-relative p-3 bg-white rounded shadow-sm">
+                                    <Image
+                                        src="/images/AEA.webp"
+                                        alt="Alpine Education Association logo"
+                                        width={300}
+                                        height={300}
+                                        className="img-fluid p-3"
+                                    />
+                                </div>
+                            </a>
+                        </Col>
+                    </Row>
                 </Container>
             </Container>
 
