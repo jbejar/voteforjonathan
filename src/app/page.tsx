@@ -258,6 +258,7 @@ className="img-fluid"
 
             </Container>
             <Container fluid className="bg-white p-5">
+                <Container>
                 <h2 data-bs-theme="dark">Get Involved</h2>
                 <Row><Col className="px-">
                     <p>We need your help to make a difference in our community. Join us in our campaign to elect Jonathan Bejarano for School Board.</p>
@@ -302,7 +303,7 @@ className="img-fluid"
                         </div>
                     </Col>
                 </Row>
-
+</Container>
             </Container>
         </>
     );
