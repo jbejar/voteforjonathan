@@ -1,5 +1,6 @@
 'use client'
 import Container from 'react-bootstrap/Container'
+import Image from 'next/image';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -11,29 +12,73 @@ export default function EventCalendarPage() {
 
 
 
-      {/* Event 4 */}
-      <Row className="border-bottom py-4 mb-4 bg-white rounded">
+      {/* Upcoming Events Section */}
+      <Row className="py-4 mb-4 bg-white rounded shadow-sm">
         <Col xs={2} className="text-end">
           <h1 className="display-4">
-            <span className="badge bg-secondary">2</span>
+        <span className="badge bg-primary">12</span>
           </h1>
           <h2>AUG</h2>
         </Col>
         <Col xs={10}>
-          <h3 className="text-uppercase fw-bold">Highland Fling Parade/Family Day</h3>
+          <h3 className="text-uppercase fw-bold">Election Day</h3>
           <ul className="list-inline">
-            <li className="list-inline-item">
-              <i className="bi bi-calendar" aria-hidden="true"></i> Saturday
-            </li>
-            <li className="list-inline-item">
-              <i className="bi bi-geo-alt" aria-hidden="true"></i> <a href="https://maps.app.goo.gl/a52uyST37agxgmgW6" target="_blank" rel="noopener noreferrer">Heritage Park</a>
-            </li>
+        <li className="list-inline-item">
+          <i className="bi bi-calendar" aria-hidden="true"></i> Tuesday
+        </li>
+        <li className="list-inline-item">
+          <i className="bi bi-clock" aria-hidden="true"></i> 7:00 AM - 8:00 PM
+        </li>
+        <li className="list-inline-item">
+          <i className="bi bi-geo-alt" aria-hidden="true"></i> Highland City Offices
+        </li>
           </ul>
           <p>
-            Join us for Highland&apos;s biggest community celebration! I&apos;ll be participating in the Highland Fling Parade and spending Family Day at Heritage Park. This is Highland&apos;s signature event celebrating our community spirit - come enjoy the festivities and let&apos;s talk about building an even stronger future for our city.
+        <strong>Vote at the Highland City Offices!</strong> The polling location at 5400 Civic Center Dr, Highland, UT 84003 is only open on Election Day. Be sure to cast your vote between 7am and 8pm. Every vote counts!
           </p>
+        
         </Col>
       </Row>
+
+
+      {/* Past Events Section */}
+      
+      <div className="mt-5 pt-4 border-top">
+        <h2 className="text-center mb-4 text-muted">Past Events</h2>
+        </div>
+        {/* Event - Highland Fling Parade/Family Day */}
+        <Row className="py-4 mb-4 bg-light rounded opacity-75">
+          <Col xs={2} className="text-end">
+        <h1 className="display-4">
+          <span className="badge bg-light text-muted border">2</span>
+        </h1>
+        <h2 className="text-muted">AUG</h2>
+          </Col>
+          <Col xs={10}>
+        <h3 className="text-uppercase fw-bold text-muted">Highland Fling Parade/Family Day</h3>
+        <ul className="list-inline">
+          <li className="list-inline-item text-muted">
+            <i className="bi bi-calendar" aria-hidden="true"></i> Saturday
+          </li>
+          <li className="list-inline-item text-muted">
+            <i className="bi bi-geo-alt" aria-hidden="true"></i> Heritage Park
+          </li>
+        </ul>
+        <p className="text-muted">
+          <strong>Event completed!</strong> Thank you to everyone who joined us at Highland&apos;s biggest community celebration! It was wonderful participating in the Highland Fling Parade and meeting so many community members at Heritage Park during Family Day. I appreciated all the conversations about our vision for the future of our city.
+        </p>
+        <div className="mt-3 mb-3">
+          <Image 
+            src="/images/parade.webp" 
+            alt="Community supporters at the Highland Fling Parade holding campaign signs" 
+            width={800}
+            height={500}
+            loading="lazy"
+            className="img-fluid rounded shadow-sm opacity-100" 
+          />
+        </div>
+          </Col>
+        </Row>
 
 
 
@@ -126,6 +171,16 @@ export default function EventCalendarPage() {
         <p className="text-muted">
           <strong>Event completed!</strong> Thank you to everyone who joined us for the Open House and Endorsement Convention at Skyridge High School. It was a great opportunity to connect with community members and discuss important issues affecting our district.
         </p>
+        <div className="mt-3 mb-3">
+          <Image 
+            src="/images/RepublicanConvention.webp" 
+            alt="Jonathan Bejarano at the Open House and Endorsement Convention" 
+            width={800}
+            height={500}
+            loading="lazy"
+            className="img-fluid rounded shadow-sm opacity-100" 
+          />
+        </div>
           </Col>
         </Row>
 {/* Event 3 */}
@@ -178,6 +233,16 @@ export default function EventCalendarPage() {
           <p className="text-muted">
             <strong>Event completed!</strong> Thank you to everyone who joined me at the Highland Farmers Market! The patriotic crafts for families were a huge success as we approached Independence Day. It was wonderful connecting with community members and discussing priorities while kids created something special to celebrate our great nation.
           </p>
+          <div className="mt-3 mb-3">
+            <Image 
+              src="/images/FarmersMarket.webp" 
+              alt="Jonathan Bejarano at Highland Farmers Market connecting with community members" 
+              width={500}
+              height={500}
+              loading="lazy"
+              className="img-fluid rounded shadow-sm opacity-100" 
+            />
+          </div>
         </Col>
       </Row>
 
@@ -264,6 +329,16 @@ export default function EventCalendarPage() {
             <p className="text-muted">
               <strong>Event completed!</strong> Thank you to everyone who joined me at the Highland Farmers Market. It was wonderful meeting with community members and discussing the issues that matter to you. The carnival games for kids were a hit, making it a perfect family-friendly event.
             </p>
+          <div className="mt-3 mb-3">
+            <Image 
+              src="/images/Farmers1.webp" 
+              alt="Jonathan Bejarano engaging with community members at the Highland Farmers Market" 
+              width={500}
+              height={500}
+              loading="lazy"
+              className="img-fluid rounded shadow-sm opacity-100" 
+            />
+          </div>
           </Col>
         </Row>
       </div>
