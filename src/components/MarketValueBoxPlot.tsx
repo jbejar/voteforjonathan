@@ -104,7 +104,7 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
             .attr("transform", `translate(0,${height})`)
             .call(d3.axisBottom(xScale)
             .ticks(8)
-            .tickFormat(d => `${d}%`))
+            .tickFormat(d => d === 0 ? '0%' : `${+d > 0 ? '+' : ''}${d}%`))
 
         // Add Y axis
         
@@ -114,7 +114,7 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
             .attr("text-anchor", "middle")
             .attr("x", width / 2)
             .attr("y", height + 40)
-            .style("font-size", "16px")
+            .style("font-size", "17px")
             .style("font-family", "Open Sans, sans-serif")
             .text("Percentage Increase in Market Value (2024 to 2025)")
 
@@ -197,11 +197,11 @@ export default function MarketValueBoxPlot({ data, selectedProperty }: MarketVal
                 .attr("x", xScale(selectedPropertyIncrease))
                 .attr("y", yScale("Market Value % Increase")! - 10)
                 .attr("text-anchor", "middle")
-                .style("font-size", "15px")
+                .style("font-size", "17px")
                 .style("font-family", "Open Sans, sans-serif")
                 .style("font-weight", "bold")
                 .style("fill", "#007bff")
-                .text(`Your Property: ${selectedPropertyIncrease.toFixed(1)}%`)
+                .text(`Your Property: ${selectedPropertyIncrease >= 0 ? '+' : ''}${selectedPropertyIncrease.toFixed(1)}%`)
         }
 
     }, [data, selectedProperty, width])

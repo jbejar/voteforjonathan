@@ -180,7 +180,7 @@ className="img-fluid"
                                     <Card className="h-100 shadow-sm">
                                         <CardBody className="d-flex flex-column">
                                             <CardText className="flex-grow-1">
-                                                "Jonathan showed us the actual numbers proving that a split would increase our taxes. He is educated about everything related to education policy and has done the research to understand the real financial implications of the district split."
+                                                &ldquo;Jonathan showed us the actual numbers proving that a split would increase our taxes. He is educated about everything related to education policy and has done the research to understand the real financial implications of the district split.&rdquo;
                                             </CardText>
                                             <footer className="blockquote-footer mt-3">
                                                 <strong>Tammy H. Hodson</strong><br />
@@ -193,7 +193,7 @@ className="img-fluid"
                                     <Card className="h-100 shadow-sm">
                                         <CardBody className="d-flex flex-column">
                                             <CardText className="flex-grow-1">
-                                                "He is so educated about everything education. He listens, and he comes up with brilliant ideas. He understands the need to be careful on taxes and is actively working hundreds of hours to figure out how to continue giving our students what they need without asking for more money."
+                                                &ldquo;He is so educated about everything education. He listens, and he comes up with brilliant ideas. He understands the need to be careful on taxes and is actively working hundreds of hours to figure out how to continue giving our students what they need without asking for more money.&rdquo;
                                             </CardText>
                                             <footer className="blockquote-footer mt-3">
                                                 <strong>Jaclyn Olson</strong><br />
@@ -206,7 +206,7 @@ className="img-fluid"
                                     <Card className="h-100 shadow-sm">
                                         <CardBody className="d-flex flex-column">
                                             <CardText className="flex-grow-1">
-                                                "Jonathan is very easy to work with, a clear communicator, and responds promptly. He listens far more than he talks and is very good at getting into the nitty-gritty details. Making decisions for a new school district requires people who dive deep and understand all the pros and cons."
+                                                &ldquo;Jonathan is very easy to work with, a clear communicator, and responds promptly. He listens far more than he talks and is very good at getting into the nitty-gritty details. Making decisions for a new school district requires people who dive deep and understand all the pros and cons.&rdquo;
                                             </CardText>
                                             <footer className="blockquote-footer mt-3">
                                                 <strong>Emmerin Schutz</strong><br />

@@ -326,7 +326,7 @@ function TaxesContent() {
                                     <thead>
                                         <tr>
                                             <th>Year</th>
-                                            <th>Market Value</th>
+                                            <th className="d-none d-lg-table-cell">Market Value</th>
                                             <th>ASD Tax Rate</th>
                                             <th>Total Tax Paid</th>
                                             <th className="d-none d-md-table-cell">Year-over-Year Change</th>
@@ -344,7 +344,7 @@ function TaxesContent() {
                                                 return (
                                                     <tr key={data.year}>
                                                         <td>{data.year}</td>
-                                                        <td>{formatCurrency(data.marketValue)}</td>
+                                                        <td className="d-none d-lg-table-cell">{formatCurrency(data.marketValue)}</td>
                                                         <td>{(data.asdTaxRate).toFixed(6)}</td>
                                                         <td>{formatCurrency((data.asdTax))}</td>
                                                         <td className="d-none d-md-table-cell">
