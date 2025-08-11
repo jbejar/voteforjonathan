@@ -342,18 +342,18 @@ function TaxesContent() {
                                     <tr>
                                         <th>Year</th>
                                         <th>District Levy</th>
-                                        <th>Certified Rate</th>
-                                        <th>Bond Tax Rate</th>
-                                        <th>Change</th>
+                                        <th className="d-none d-md-table-cell">Certified Rate</th>
+                                        <th className="d-none d-md-table-cell">Bond Tax Rate</th>
+                                        <th className="d-none d-lg-table-cell">Change</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>2025</td>
                                         <td>0.003858</td>
-                                        <td className="text-muted">0.003458</td>
-                                        <td>0.000744</td>
-                                        <td>
+                                        <td className="d-none d-md-table-cell text-muted">0.003458</td>
+                                        <td className="d-none d-md-table-cell">0.000744</td>
+                                        <td className="d-none d-lg-table-cell">
                                             <div>
                                                 <span className="text-danger fw-bold d-block">
                                                     Levy: +4.1% vs 2024 ({formatCurrency((0.003858 - 0.003707) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} more)
@@ -370,9 +370,9 @@ function TaxesContent() {
                                     <tr>
                                         <td>2024</td>
                                         <td>0.003707</td>
-                                        <td className="text-muted">-</td>
-                                        <td>0.000931</td>
-                                        <td>-</td>
+                                        <td className="text-muted d-none d-md-table-cell">-</td>
+                                        <td className="d-none d-md-table-cell">0.000931</td>
+                                        <td className="d-none d-lg-table-cell">-</td>
                                     </tr>
                                 </tbody>
                             </Table>
