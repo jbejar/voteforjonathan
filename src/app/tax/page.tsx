@@ -434,7 +434,7 @@ function TaxesContent() {
                                         <td>0.001152</td>
                                         <td className="d-none d-lg-table-cell">0.002</td>
                                         <td>{((0.001152 / 0.002) * 100).toFixed(1)}%</td>
-                                        <td className="d-none d-md-table-cell">Unrestricted revenue for general fund (voter-approved)</td>
+                                        <td className="d-none d-md-table-cell">Unrestricted revenue for general fund</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Capital Local Rate</strong></td>
