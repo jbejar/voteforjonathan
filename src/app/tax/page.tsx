@@ -460,7 +460,6 @@ function TaxesContent() {
                                     <li><strong>Voted Levy:</strong> Provides flexible funding for district priorities (limited to 0.002)</li>
                                     <li><strong>Capital Rate:</strong> Dedicated to building and facility improvements, approved by the school board (limited to 0.003)</li>
                                     <li><strong>Current Usage:</strong> ASD is using {((0.003458 / 0.0075) * 100).toFixed(1)}% of its maximum allowable levy capacity</li>
-                                    <li><strong>Room for Growth:</strong> The district has {formatCurrency((0.0075 - 0.003458) * (selectedProperty?.marketValue[2025] || 500000) * 0.55)} per ${formatCurrency(selectedProperty?.marketValue[2025] || 500000)} home in unused levy capacity</li>
                                 </ul>
                             </div>
 
