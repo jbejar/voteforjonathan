@@ -278,72 +278,6 @@ function TaxesContent() {
                 <Col>
                     <Card>
                         <Card.Header>
-                            <h5>Understanding Bond Tax Changes</h5>
-                        </Card.Header>
-                        <Card.Body>
-                            <div className="alert alert-warning">
-                                <h6><strong>Important: Bond Taxes Are Not Included in District Levy Notices</strong></h6>
-                                <p className="mb-2">
-                                    Your property tax notice shows changes to the &quot;District Levy&quot; but <strong>excludes bond payments</strong>. 
-                                    This can make your tax situation appear worse than it actually is because decreasing bond payments offset other increases.
-                                </p>
-                            </div>
-                            
-                            <Table striped bordered className="mb-3">
-                                <thead>
-                                    <tr>
-                                        <th>Year</th>
-                                        <th>District Levy</th>
-                                        <th>Bond Tax Rate</th>
-                                        <th>Change</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2025</td>
-                                        <td>0.003858</td>
-                                        <td>0.000744</td>
-                                        <td>
-                                            <div>
-                                                <span className="text-danger fw-bold d-block">
-                                                    Levy: +4.1% ({formatCurrency((0.003858 - 0.003707) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} more)
-                                                </span>
-                                                <span className="text-success fw-bold">
-                                                    Bond: -20.1% ({formatCurrency((0.000931 - 0.000744) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} less)
-                                                </span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2024</td>
-                                        <td>0.003707</td>
-                                        <td>0.000931</td>
-                                        <td>-</td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                            
-                            {selectedProperty && (
-                                <div className="alert alert-info">
-                                    <p className="mb-2">
-                                        <strong>For your property:</strong> While your District Levy increased from 0.003707 to 0.003858 ({(((0.003858 - 0.003707) / 0.003707) * 100).toFixed(1)}% increase), 
-                                        your bond payments decreased by <strong>{formatCurrency((0.000931 - 0.000744) * selectedProperty.marketValue[2025] * 0.55)}</strong>, 
-                                        which helps offset the levy increase.
-                                    </p>
-                                    <p className="mb-0">
-                                        This bond decrease is <strong>not shown on your tax notice</strong> because bonds are excluded from District Levy calculations, 
-                                        even though they directly impact your total tax bill.
-                                    </p>
-                                </div>
-                            )}
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-            <Row className="mt-4">
-                <Col>
-                    <Card>
-                        <Card.Header>
                             <h5>Market Value Analysis: 2024 to 2025</h5>
                         </Card.Header>
                         <Card.Body>
@@ -378,6 +312,201 @@ function TaxesContent() {
                     </Card>
                 </Col>
             </Row>
+            <Row className="mt-4">
+                <Col>
+                    <Card>
+                        <Card.Header>
+                            <h5>Understanding Bond Tax Changes</h5>
+                        </Card.Header>
+                        <Card.Body>
+                            <div className="alert alert-warning">
+                                <h6><strong>Important: Bond Taxes Are Not Included in District Levy Notices</strong></h6>
+                                <p className="mb-2">
+                                    Your property tax notice shows changes to the &quot;District Levy&quot; but <strong>excludes bond payments</strong>. 
+                                    This can make your tax situation appear worse than it actually is because decreasing bond payments offset other increases.
+                                </p>
+                                <p className="mb-2">
+                                    Utah law requires that as property values increase, tax rates must decrease proportionally to prevent automatic tax increases. 
+                                    The <strong>certified tax rate formula</strong> (<a href="https://le.utah.gov/xcode/Title59/Chapter2/59-2-S924.html">Utah Code 59-2-924</a>) ensures that taxing entities receive the same property tax revenue 
+                                    as the prior year plus revenue from new growth only.
+                                </p>
+                                <p className="mb-2">
+                                    <strong>For Alpine School District in 2025:</strong> Following this formula strictly, the District Levy would have been 
+                                    calculated at <strong>0.003458</strong> - resulting in a tax rate decrease from the previous year. 
+                                    However, the actual adopted rate of 0.003858 represents an effort to maintain tax rates steady due to bond payments decreasing by 20.1% from 2024 to 2025.
+                                </p>
+                            </div>
+                            
+                            <Table striped bordered className="mb-3">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>District Levy</th>
+                                        <th>Certified Rate</th>
+                                        <th>Bond Tax Rate</th>
+                                        <th>Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2025</td>
+                                        <td>0.003858</td>
+                                        <td className="text-muted">0.003458</td>
+                                        <td>0.000744</td>
+                                        <td>
+                                            <div>
+                                                <span className="text-danger fw-bold d-block">
+                                                    Levy: +4.1% vs 2024 ({formatCurrency((0.003858 - 0.003707) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} more)
+                                                </span>
+                                                <span className="text-warning fw-bold d-block">
+                                                    Tax Increase: +11.6% vs certified rate ({formatCurrency((0.003858 - 0.003458) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} more)
+                                                </span>
+                                                <span className="text-success fw-bold">
+                                                    Bond: -20.1% ({formatCurrency((0.000931 - 0.000744) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} less)
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2024</td>
+                                        <td>0.003707</td>
+                                        <td className="text-muted">-</td>
+                                        <td>0.000931</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                            
+                            {selectedProperty && (
+                                <div className="alert alert-info">
+                                    <p className="mb-2">
+                                        <strong>For your property:</strong> While your District Levy increased from 0.003707 to 0.003858 ({(((0.003858 - 0.003707) / 0.003707) * 100).toFixed(1)}% increase), 
+                                        your bond payments decreased by <strong>{formatCurrency((0.000931 - 0.000744) * selectedProperty.marketValue[2025] * 0.55)}</strong>, 
+                                        which helps offset the levy increase.
+                                    </p>
+                                    <p className="mb-2">
+                                        <strong>Legislative Formula Impact:</strong> If Alpine School District had adopted the certified tax rate of 0.003458 
+                                        (designed to generate the same revenue as 2024), your District Levy would have been <strong>{formatCurrency((0.003707 - 0.003458) * selectedProperty.marketValue[2025] * 0.55)} lower</strong>. 
+                                        The difference between the certified rate and adopted rate represents a <strong>{formatCurrency((0.003858 - 0.003458) * selectedProperty.marketValue[2025] * 0.55)} tax increase</strong> above the no-increase baseline.
+                                    </p>
+                                    <p className="mb-0">
+                                        This bond decrease is <strong>not shown on your tax notice</strong> because bonds are excluded from District Levy calculations, 
+                                        even though they directly impact your total tax bill.
+                                    </p>
+                                </div>
+                            )}
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+            <Row className="mt-4">
+                <Col>
+                    <Card>
+                        <Card.Header>
+                            <h5>District Levy Breakdown</h5>
+                        </Card.Header>
+                        <Card.Body>
+                            <p className="mb-3">
+                                The Alpine School District levy (0.003858 in 2025) is composed of three distinct components, 
+                                each with different purposes and legal limits:
+                            </p>
+                            
+                            <Table striped bordered className="mb-3">
+                                <thead>
+                                    <tr>
+                                        <th>Levy Component</th>
+                                        <th>2025 Rate</th>
+                                        <th className="d-none d-lg-table-cell">Legal Limit</th>
+                                        <th>% of Max</th>
+                                        <th className="d-none d-md-table-cell">Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Board-Approved Local Levy</strong></td>
+                                        <td>0.000977</td>
+                                        <td className="d-none d-lg-table-cell">0.0025</td>
+                                        <td>{((0.000977 / 0.0025) * 100).toFixed(1)}%</td>
+                                        <td className="d-none d-md-table-cell">General fund operations for minimum school program</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Voted Local Levy</strong></td>
+                                        <td>0.001152</td>
+                                        <td className="d-none d-lg-table-cell">0.002</td>
+                                        <td>{((0.001152 / 0.002) * 100).toFixed(1)}%</td>
+                                        <td className="d-none d-md-table-cell">Unrestricted revenue for general fund (voter-approved)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Capital Local Rate</strong></td>
+                                        <td>0.001329</td>
+                                        <td className="d-none d-lg-table-cell">0.003</td>
+                                        <td>{((0.001329 / 0.003) * 100).toFixed(1)}%</td>
+                                        <td className="d-none d-md-table-cell">Capital projects and facilities (board-approved)</td>
+                                    </tr>
+                                    <tr className="table-active">
+                                        <td><strong>Total District Levy</strong></td>
+                                        <td><strong>0.003458</strong></td>
+                                        <td className="d-none d-lg-table-cell"><strong>0.0075</strong></td>
+                                        <td><strong>{((0.003458 / 0.0075) * 100).toFixed(1)}%</strong></td>
+                                        <td className="d-none d-md-table-cell">Combined levy for all district operations</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+
+                            <div className="alert alert-info">
+                                <h6><strong>Key Points:</strong></h6>
+                                <ul className="mb-0">
+                                    <li><strong>Board-Approved Levy:</strong> School boards can impose up to 0.0025 to fund basic operations</li>
+                                    <li><strong>Voted Levy:</strong> Provides flexible funding for district priorities (limited to 0.002)</li>
+                                    <li><strong>Capital Rate:</strong> Dedicated to building and facility improvements, approved by the school board (limited to 0.003)</li>
+                                    <li><strong>Current Usage:</strong> ASD is using {((0.003458 / 0.0075) * 100).toFixed(1)}% of its maximum allowable levy capacity</li>
+                                    <li><strong>Room for Growth:</strong> The district has {formatCurrency((0.0075 - 0.003458) * (selectedProperty?.marketValue[2025] || 500000) * 0.55)} per ${formatCurrency(selectedProperty?.marketValue[2025] || 500000)} home in unused levy capacity</li>
+                                </ul>
+                            </div>
+
+                            {selectedProperty && (
+                                <div className="alert alert-success">
+                                    <h6><strong>Impact on Your Property:</strong></h6>
+                                    <Table size="sm" className="mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td>Board-Approved Levy:</td>
+                                                <td>{formatCurrency(selectedProperty.marketValue[2025] * 0.55 * 0.000977)}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Voted Levy:</td>
+                                                <td>{formatCurrency(selectedProperty.marketValue[2025] * 0.55 * 0.001152)}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Capital Rate:</td>
+                                                <td>{formatCurrency(selectedProperty.marketValue[2025] * 0.55 * 0.001329)}</td>
+                                            </tr>
+                                            <tr className="table-active fw-bold">
+                                                <td>Total District Levy:</td>
+                                                <td>{formatCurrency(selectedProperty.marketValue[2025] * 0.55 * 0.003458)}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                                </div>
+                            )}
+
+                            <div className="mt-3">
+                                <small className="text-muted">
+                                    <strong>Source:</strong> Utah State Tax Commission Property Tax Standards, Section 10 - 
+                                    <a href="https://propertytax.utah.gov/standards/standard10.pdf" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer" 
+                                       className="text-decoration-none">
+                                        School District Levies and Rates
+                                    </a>
+                                </small>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+
+            
 
             {selectedProperty && (
                 <Row className="mt-4">
