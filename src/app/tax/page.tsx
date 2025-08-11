@@ -274,7 +274,72 @@ function TaxesContent() {
                     </Col>
                 )}
             </Row>
-
+            <Row className="mt-4">
+                <Col>
+                    <Card>
+                        <Card.Header>
+                            <h5>Understanding Bond Tax Changes</h5>
+                        </Card.Header>
+                        <Card.Body>
+                            <div className="alert alert-warning">
+                                <h6><strong>Important: Bond Taxes Are Not Included in District Levy Notices</strong></h6>
+                                <p className="mb-2">
+                                    Your property tax notice shows changes to the &quot;District Levy&quot; but <strong>excludes bond payments</strong>. 
+                                    This can make your tax situation appear worse than it actually is because decreasing bond payments offset other increases.
+                                </p>
+                            </div>
+                            
+                            <Table striped bordered className="mb-3">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>District Levy</th>
+                                        <th>Bond Tax Rate</th>
+                                        <th>Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2025</td>
+                                        <td>0.003858</td>
+                                        <td>0.000744</td>
+                                        <td>
+                                            <div>
+                                                <span className="text-danger fw-bold d-block">
+                                                    Levy: +4.1% ({formatCurrency((0.003858 - 0.003707) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} more)
+                                                </span>
+                                                <span className="text-success fw-bold">
+                                                    Bond: -20.1% ({formatCurrency((0.000931 - 0.000744) * (selectedProperty?.marketValue[2025] || 100000) * 0.55)} less)
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2024</td>
+                                        <td>0.003707</td>
+                                        <td>0.000931</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                            
+                            {selectedProperty && (
+                                <div className="alert alert-info">
+                                    <p className="mb-2">
+                                        <strong>For your property:</strong> While your District Levy increased from 0.003707 to 0.003858 ({(((0.003858 - 0.003707) / 0.003707) * 100).toFixed(1)}% increase), 
+                                        your bond payments decreased by <strong>{formatCurrency((0.000931 - 0.000744) * selectedProperty.marketValue[2025] * 0.55)}</strong>, 
+                                        which helps offset the levy increase.
+                                    </p>
+                                    <p className="mb-0">
+                                        This bond decrease is <strong>not shown on your tax notice</strong> because bonds are excluded from District Levy calculations, 
+                                        even though they directly impact your total tax bill.
+                                    </p>
+                                </div>
+                            )}
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
             <Row className="mt-4">
                 <Col>
                     <Card>
